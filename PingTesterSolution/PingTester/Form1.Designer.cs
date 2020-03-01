@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addPath = new System.Windows.Forms.Button();
             this.treeFiles = new System.Windows.Forms.TreeView();
             this.cmbFiles = new System.Windows.Forms.ComboBox();
             this.pingTester = new Recon.PingTester();
-            this.addPath = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,17 @@
             this.groupBox1.Size = new System.Drawing.Size(177, 450);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Opzioni";
+            this.groupBox1.Text = "Options";
+            // 
+            // addPath
+            // 
+            this.addPath.Location = new System.Drawing.Point(7, 270);
+            this.addPath.Name = "addPath";
+            this.addPath.Size = new System.Drawing.Size(164, 23);
+            this.addPath.TabIndex = 5;
+            this.addPath.Text = "Add path";
+            this.addPath.UseVisualStyleBackColor = true;
+            this.addPath.Click += new System.EventHandler(this.addPath_Click);
             // 
             // treeFiles
             // 
@@ -74,16 +84,6 @@
             this.pingTester.Name = "pingTester";
             this.pingTester.Size = new System.Drawing.Size(710, 450);
             this.pingTester.TabIndex = 2;
-            // 
-            // addPath
-            // 
-            this.addPath.Location = new System.Drawing.Point(7, 270);
-            this.addPath.Name = "addPath";
-            this.addPath.Size = new System.Drawing.Size(164, 23);
-            this.addPath.TabIndex = 5;
-            this.addPath.Text = "Add path";
-            this.addPath.UseVisualStyleBackColor = true;
-            this.addPath.Click += new System.EventHandler(this.addPath_Click);
             // 
             // Form1
             // 
