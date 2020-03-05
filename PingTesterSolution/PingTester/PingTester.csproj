@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyUserControls\httprobeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControls\httprobeControl.Designer.cs">
+      <DependentUpon>httprobeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControls\PingTester.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,6 +70,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="MyUserControls\httprobeControl.resx">
+      <DependentUpon>httprobeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyUserControls\PingTester.resx">
       <DependentUpon>PingTester.cs</DependentUpon>
     </EmbeddedResource>

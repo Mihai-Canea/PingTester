@@ -33,8 +33,7 @@
             this.treeFiles = new System.Windows.Forms.TreeView();
             this.cmbFiles = new System.Windows.Forms.ComboBox();
             this.pingTester = new Recon.PingTester();
-            this.txtTestCMD = new System.Windows.Forms.TextBox();
-            this.btnTestCMD = new System.Windows.Forms.Button();
+            this.httprobeControl1 = new PingTester.MyUserControls.httprobeControl();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +45,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 582);
+            this.groupBox1.Size = new System.Drawing.Size(177, 415);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
@@ -83,34 +82,22 @@
             // 
             this.pingTester.Location = new System.Drawing.Point(183, 0);
             this.pingTester.Name = "pingTester";
-            this.pingTester.Size = new System.Drawing.Size(688, 372);
+            this.pingTester.Size = new System.Drawing.Size(409, 401);
             this.pingTester.TabIndex = 2;
             // 
-            // txtTestCMD
+            // httprobeControl1
             // 
-            this.txtTestCMD.Location = new System.Drawing.Point(193, 447);
-            this.txtTestCMD.Multiline = true;
-            this.txtTestCMD.Name = "txtTestCMD";
-            this.txtTestCMD.Size = new System.Drawing.Size(678, 123);
-            this.txtTestCMD.TabIndex = 3;
-            // 
-            // btnTestCMD
-            // 
-            this.btnTestCMD.Location = new System.Drawing.Point(193, 418);
-            this.btnTestCMD.Name = "btnTestCMD";
-            this.btnTestCMD.Size = new System.Drawing.Size(75, 23);
-            this.btnTestCMD.TabIndex = 4;
-            this.btnTestCMD.Text = "TestCMD";
-            this.btnTestCMD.UseVisualStyleBackColor = true;
-            this.btnTestCMD.Click += new System.EventHandler(this.btnTestCMD_Click);
+            this.httprobeControl1.Location = new System.Drawing.Point(598, 0);
+            this.httprobeControl1.Name = "httprobeControl1";
+            this.httprobeControl1.Size = new System.Drawing.Size(462, 401);
+            this.httprobeControl1.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 582);
-            this.Controls.Add(this.btnTestCMD);
-            this.Controls.Add(this.txtTestCMD);
+            this.ClientSize = new System.Drawing.Size(1107, 415);
+            this.Controls.Add(this.httprobeControl1);
             this.Controls.Add(this.pingTester);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -118,7 +105,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -129,8 +115,7 @@
         private System.Windows.Forms.ComboBox cmbFiles;
         private System.Windows.Forms.Button addPath;
         private Recon.PingTester pingTester;
-        private System.Windows.Forms.TextBox txtTestCMD;
-        private System.Windows.Forms.Button btnTestCMD;
+        private MyUserControls.httprobeControl httprobeControl1;
     }
 }
 

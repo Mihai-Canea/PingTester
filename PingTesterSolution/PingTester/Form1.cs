@@ -83,32 +83,5 @@ namespace PingTester
             loadPathElements();
         }
 
-        private void btnTestCMD_Click(object sender, EventArgs e)
-        {
-            Process p = new Process();
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.RedirectStandardError = true;
-            p.StartInfo.CreateNoWindow = true;
-            //p.StartInfo.WorkingDirectory = "../";
-            p.StartInfo.FileName = "cmd";
-            p.StartInfo.Arguments = "/c cat sas.txt | httprobe -p http:8080 -p https:8443";
-            p.Start();
-
-            //string Output = p.StandardOutput.ReadToEnd();
-            //string Output;
-            while (!p.HasExited)
-            {
-                BeginInvoke(new MethodInvoker(() =>
-                {
-                    txtTestCMD.Text += $"{p.StandardOutput.ReadLine()}{Environment.NewLine}";
-                }));
-                Application.DoEvents(); // This keeps your form responsive by processing events
-            }
-            //while (p.StandardOutput.ReadLine() != null)
-            //{
-            //}
-            //p.WaitForExit();
-        }
     }
 }
