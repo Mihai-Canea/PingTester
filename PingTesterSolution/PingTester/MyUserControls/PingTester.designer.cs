@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupElements = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lstUrls = new System.Windows.Forms.CheckedListBox();
@@ -50,6 +50,7 @@
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.btnFilter = new System.Windows.Forms.Button();
             this.cmbFilters = new System.Windows.Forms.ComboBox();
+            this.numPingTimeout = new System.Windows.Forms.NumericUpDown();
             this.groupElements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -64,6 +65,7 @@
             this.panel1.SuspendLayout();
             this.groupFilter.SuspendLayout();
             this.pnlFilterText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeout)).BeginInit();
             this.SuspendLayout();
             // 
             // groupElements
@@ -94,7 +96,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(688, 276);
-            this.splitContainer1.SplitterDistance = 361;
+            this.splitContainer1.SplitterDistance = 292;
             this.splitContainer1.TabIndex = 2;
             // 
             // lstUrls
@@ -105,7 +107,7 @@
             this.lstUrls.FormattingEnabled = true;
             this.lstUrls.Location = new System.Drawing.Point(0, 0);
             this.lstUrls.Name = "lstUrls";
-            this.lstUrls.Size = new System.Drawing.Size(361, 276);
+            this.lstUrls.Size = new System.Drawing.Size(292, 276);
             this.lstUrls.TabIndex = 0;
             // 
             // splitContainer2
@@ -123,7 +125,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvSuccess);
             this.splitContainer2.Panel2MinSize = 0;
-            this.splitContainer2.Size = new System.Drawing.Size(323, 276);
+            this.splitContainer2.Size = new System.Drawing.Size(392, 276);
             this.splitContainer2.SplitterDistance = 150;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -134,19 +136,19 @@
             this.dgvResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResults.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResults.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvResults.Location = new System.Drawing.Point(0, 0);
             this.dgvResults.Name = "dgvResults";
             this.dgvResults.RowHeadersVisible = false;
-            this.dgvResults.Size = new System.Drawing.Size(323, 150);
+            this.dgvResults.Size = new System.Drawing.Size(392, 150);
             this.dgvResults.TabIndex = 0;
             // 
             // Column1
@@ -167,19 +169,19 @@
             this.dgvSuccess.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSuccess.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSuccess.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSuccess.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSuccess.Location = new System.Drawing.Point(0, 0);
             this.dgvSuccess.Name = "dgvSuccess";
             this.dgvSuccess.RowHeadersVisible = false;
-            this.dgvSuccess.Size = new System.Drawing.Size(323, 122);
+            this.dgvSuccess.Size = new System.Drawing.Size(392, 122);
             this.dgvSuccess.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -195,6 +197,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.numPingTimeout);
             this.panel1.Controls.Add(this.lblPinging);
             this.panel1.Controls.Add(this.btnExportSuccess);
             this.panel1.Controls.Add(this.lblPath);
@@ -300,6 +303,23 @@
             this.cmbFilters.TabIndex = 2;
             this.cmbFilters.SelectedIndexChanged += new System.EventHandler(this.cmbFilters_SelectedIndexChanged);
             // 
+            // numPingTimeout
+            // 
+            this.numPingTimeout.Location = new System.Drawing.Point(128, 46);
+            this.numPingTimeout.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.numPingTimeout.Name = "numPingTimeout";
+            this.numPingTimeout.Size = new System.Drawing.Size(63, 20);
+            this.numPingTimeout.TabIndex = 5;
+            this.numPingTimeout.Value = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            // 
             // PingTester
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +344,7 @@
             this.groupFilter.ResumeLayout(false);
             this.pnlFilterText.ResumeLayout(false);
             this.pnlFilterText.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -350,5 +371,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button btnExportSuccess;
         private System.Windows.Forms.Label lblPinging;
+        private System.Windows.Forms.NumericUpDown numPingTimeout;
     }
 }

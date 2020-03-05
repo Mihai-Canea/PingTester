@@ -14,7 +14,7 @@ namespace Recon
 {
     public partial class PingTester : UserControl
     {
-        const string WORKING_PATH = @"C:\Users\miche\Desktop\Projects\BurpFiles\Targets\TEST_RECON";
+        const string WORKING_PATH = @"C:\Users\miche\Desktop\Projects\BurpFiles\Targets\PingTester";
 
         public PingTester()
         {
@@ -57,7 +57,7 @@ namespace Recon
                         Random random = new Random();
                         Ping ping = new Ping();
                         PingReply pingReply =
-                            await ping.SendPingAsync(localUrl, 100);
+                            await ping.SendPingAsync(localUrl, (int)numPingTimeout.Value);
                         return pingReply.Status;
                     };
 
