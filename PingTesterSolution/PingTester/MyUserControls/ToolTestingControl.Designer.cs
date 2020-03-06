@@ -1,6 +1,6 @@
 ﻿namespace PingTester.MyUserControls
 {
-    partial class httprobeControl
+    partial class ToolTestingControl
     {
         /// <summary> 
         /// Variabile di progettazione necessaria.
@@ -28,27 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTool = new System.Windows.Forms.GroupBox();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.txtFinish = new System.Windows.Forms.TextBox();
             this.txtUrls = new System.Windows.Forms.TextBox();
             this.btnTestUrls = new System.Windows.Forms.Button();
-            this.txtFinish = new System.Windows.Forms.TextBox();
-            this.btnStop = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxTool.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxTool
             // 
-            this.groupBox1.Controls.Add(this.btnStop);
-            this.groupBox1.Controls.Add(this.txtFinish);
-            this.groupBox1.Controls.Add(this.txtUrls);
-            this.groupBox1.Controls.Add(this.btnTestUrls);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(462, 270);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "httprobe";
+            this.groupBoxTool.Controls.Add(this.btnStop);
+            this.groupBoxTool.Controls.Add(this.txtFinish);
+            this.groupBoxTool.Controls.Add(this.txtUrls);
+            this.groupBoxTool.Controls.Add(this.btnTestUrls);
+            this.groupBoxTool.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxTool.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxTool.Name = "groupBoxTool";
+            this.groupBoxTool.Size = new System.Drawing.Size(462, 270);
+            this.groupBoxTool.TabIndex = 0;
+            this.groupBoxTool.TabStop = false;
+            this.groupBoxTool.Text = "httprobe";
+            // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(87, 19);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(43, 23);
+            this.btnStop.TabIndex = 3;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // txtFinish
+            // 
+            this.txtFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFinish.Enabled = false;
+            this.txtFinish.Location = new System.Drawing.Point(322, 19);
+            this.txtFinish.Name = "txtFinish";
+            this.txtFinish.ReadOnly = true;
+            this.txtFinish.Size = new System.Drawing.Size(134, 20);
+            this.txtFinish.TabIndex = 2;
             // 
             // txtUrls
             // 
@@ -72,42 +92,22 @@
             this.btnTestUrls.UseVisualStyleBackColor = true;
             this.btnTestUrls.Click += new System.EventHandler(this.btnTestUrls_Click);
             // 
-            // txtFinish
-            // 
-            this.txtFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFinish.Enabled = false;
-            this.txtFinish.Location = new System.Drawing.Point(322, 19);
-            this.txtFinish.Name = "txtFinish";
-            this.txtFinish.ReadOnly = true;
-            this.txtFinish.Size = new System.Drawing.Size(134, 20);
-            this.txtFinish.TabIndex = 2;
-            // 
-            // btnStop
-            // 
-            this.btnStop.Location = new System.Drawing.Point(87, 17);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(43, 23);
-            this.btnStop.TabIndex = 3;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
             // httprobeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxTool);
             this.Name = "httprobeControl";
             this.Size = new System.Drawing.Size(462, 270);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxTool.ResumeLayout(false);
+            this.groupBoxTool.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxTool;
         private System.Windows.Forms.TextBox txtUrls;
         private System.Windows.Forms.Button btnTestUrls;
         private System.Windows.Forms.TextBox txtFinish;

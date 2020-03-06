@@ -26,6 +26,20 @@ namespace PingTester
         private void Form1_Load(object sender, EventArgs e)
         {
             loadPathElements();
+            MyUserControls.ToolTestingControl am= new MyUserControls.ToolTestingControl();
+            am.ToolName = "amass";
+            am.CommandTool = "/c amass enum -d tesla.com";
+            flowLayoutPanel.Controls.Add(am);
+
+            MyUserControls.ToolTestingControl ht = new MyUserControls.ToolTestingControl();
+            ht.ToolName = "httprobe";
+            ht.CommandTool = "/c cat sas.txt | httprobe -p http:8080 -p https:8443";
+            flowLayoutPanel.Controls.Add(ht);
+
+            MyUserControls.ToolTestingControl sub = new MyUserControls.ToolTestingControl();
+            sub.ToolName = "subfinder";
+            sub.CommandTool = "/c subfinder -d tesla.com";
+            flowLayoutPanel.Controls.Add(sub);
         }
 
         private void loadPathElements()

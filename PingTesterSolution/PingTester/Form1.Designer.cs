@@ -32,14 +32,15 @@
             this.addPath = new System.Windows.Forms.Button();
             this.treeFiles = new System.Windows.Forms.TreeView();
             this.cmbFiles = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pingTester = new Recon.PingTester();
-            this.httprobeControl1 = new PingTester.MyUserControls.httprobeControl();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.addPath);
+            this.groupBox1.Controls.Add(this.pingTester);
             this.groupBox1.Controls.Add(this.treeFiles);
             this.groupBox1.Controls.Add(this.cmbFiles);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -78,27 +79,29 @@
             this.cmbFiles.TabIndex = 0;
             this.cmbFiles.SelectedIndexChanged += new System.EventHandler(this.cmbFiles_SelectedIndexChanged);
             // 
+            // flowLayoutPanel
+            // 
+            this.flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.flowLayoutPanel.AutoScroll = true;
+            this.flowLayoutPanel.Location = new System.Drawing.Point(183, 0);
+            this.flowLayoutPanel.Name = "flowLayoutPanel";
+            this.flowLayoutPanel.Size = new System.Drawing.Size(509, 403);
+            this.flowLayoutPanel.TabIndex = 3;
+            // 
             // pingTester
             // 
-            this.pingTester.Location = new System.Drawing.Point(183, 0);
+            this.pingTester.Location = new System.Drawing.Point(112, 299);
             this.pingTester.Name = "pingTester";
-            this.pingTester.Size = new System.Drawing.Size(409, 401);
+            this.pingTester.Size = new System.Drawing.Size(59, 41);
             this.pingTester.TabIndex = 2;
-            // 
-            // httprobeControl1
-            // 
-            this.httprobeControl1.Location = new System.Drawing.Point(598, 0);
-            this.httprobeControl1.Name = "httprobeControl1";
-            this.httprobeControl1.Size = new System.Drawing.Size(462, 401);
-            this.httprobeControl1.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 415);
-            this.Controls.Add(this.httprobeControl1);
-            this.Controls.Add(this.pingTester);
+            this.ClientSize = new System.Drawing.Size(705, 415);
+            this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Ping tester";
@@ -115,7 +118,7 @@
         private System.Windows.Forms.ComboBox cmbFiles;
         private System.Windows.Forms.Button addPath;
         private Recon.PingTester pingTester;
-        private MyUserControls.httprobeControl httprobeControl1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
     }
 }
 

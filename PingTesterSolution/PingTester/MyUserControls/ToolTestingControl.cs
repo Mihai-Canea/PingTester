@@ -12,27 +12,41 @@ using System.Diagnostics;
 
 namespace PingTester.MyUserControls
 {
-    public partial class httprobeControl : UserControl
+    public partial class ToolTestingControl : UserControl
     {
         Thread threadUrl;
+        Process process;
+        string CommandsProcess;
 
-        public httprobeControl()
+        public ToolTestingControl()
         {
             InitializeComponent();
+        }
+
+        public string ToolName
+        {
+            get { return groupBoxTool.Text; }
+            set { groupBoxTool.Text = value; }
+        }
+
+        public string CommandTool
+        {
+            get { return CommandsProcess; }
+            set { CommandsProcess = value; }
         }
 
         private void btnTestUrls_Click(object sender, EventArgs e)
         {
             threadUrl = new Thread(new ParameterizedThreadStart(threadmethod));
             // C:\Users\{}\Desktop\Projects\BurpFiles\Targets\Sophos\subfinder_out.txt
-            threadUrl.Start(@"/c cat sas.txt | httprobe -p http:8080 -p https:8443");
+            //threadUrl.Start(@"/c cat sas.txt | httprobe -p http:8080 -p https:8443");
             //threadUrl.Start(@"/c amass enum -d tesla.com");
+            threadUrl.Start(CommandsProcess);
             //threadUrl.Start(@"/c subfinder -d tesla.com");
         }
 
         public void threadmethod(object path)
         {
-            Process process;
             process = new Process();
             process.StartInfo.WorkingDirectory = @"C:\ReconTools\";
             process.StartInfo.FileName = "cmd";
@@ -94,7 +108,10 @@ namespace PingTester.MyUserControls
         private void btnStop_Click(object sender, EventArgs e)
         {
             txtFinish.Text = threadUrl.ThreadState.ToString();
-            //threadUrl.Join();
+            foreach (var process in Process.GetProcessesByName(groupBoxTool.Text))
+            {
+                process.Kill();
+            }
         }
     }
 }
