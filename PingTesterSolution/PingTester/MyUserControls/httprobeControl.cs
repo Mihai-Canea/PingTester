@@ -14,6 +14,8 @@ namespace PingTester.MyUserControls
 {
     public partial class httprobeControl : UserControl
     {
+        Thread threadUrl;
+
         public httprobeControl()
         {
             InitializeComponent();
@@ -21,16 +23,21 @@ namespace PingTester.MyUserControls
 
         private void btnTestUrls_Click(object sender, EventArgs e)
         {
-            Thread threadUrl = new Thread(threadmethod);
-            threadUrl.Start();
+            threadUrl = new Thread(new ParameterizedThreadStart(threadmethod));
+            // C:\Users\{}\Desktop\Projects\BurpFiles\Targets\Sophos\subfinder_out.txt
+            threadUrl.Start(@"/c cat sas.txt | httprobe -p http:8080 -p https:8443");
+            //threadUrl.Start(@"/c amass enum -d tesla.com");
+            //threadUrl.Start(@"/c subfinder -d tesla.com");
         }
 
-        public void threadmethod()
+        public void threadmethod(object path)
         {
             Process process;
             process = new Process();
+            process.StartInfo.WorkingDirectory = @"C:\ReconTools\";
             process.StartInfo.FileName = "cmd";
-            process.StartInfo.Arguments = "/c cat sas.txt | httprobe -p http:8080 -p https:8443";
+            //process.StartInfo.Arguments = "/c dir";
+            process.StartInfo.Arguments =path.ToString();
 
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;
@@ -52,6 +59,7 @@ namespace PingTester.MyUserControls
             }
             catch (Exception)
             {
+                SetFinishText("httprobe finish");
             }
         }
 
@@ -67,6 +75,26 @@ namespace PingTester.MyUserControls
             {
                 this.txtUrls.Text += text + Environment.NewLine;
             }
+        }
+
+        private delegate void SetFinishTextInvoker(string text);
+        private void SetFinishText(string text)
+        {
+
+            if (this.txtFinish.InvokeRequired)
+            {
+                this.txtFinish.Invoke(new SetFinishTextInvoker(SetFinishText), text);
+            }
+            else
+            {
+                this.txtFinish.Text = text + Environment.NewLine;
+            }
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            txtFinish.Text = threadUrl.ThreadState.ToString();
+            //threadUrl.Join();
         }
     }
 }
