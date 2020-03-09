@@ -38,11 +38,7 @@ namespace PingTester.MyUserControls
         private void btnTestUrls_Click(object sender, EventArgs e)
         {
             threadUrl = new Thread(new ParameterizedThreadStart(threadmethod));
-            // C:\Users\{}\Desktop\Projects\BurpFiles\Targets\Sophos\subfinder_out.txt
-            //threadUrl.Start(@"/c cat sas.txt | httprobe -p http:8080 -p https:8443");
-            //threadUrl.Start(@"/c amass enum -d tesla.com");
             threadUrl.Start(CommandsProcess);
-            //threadUrl.Start(@"/c subfinder -d tesla.com");
         }
 
         public void threadmethod(object path)
