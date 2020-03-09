@@ -40,6 +40,7 @@ namespace PingTester
             sub.ToolName = "subfinder";
             sub.CommandTool = "/c subfinder -d tesla.com";
             flowLayoutPanel.Controls.Add(sub);
+            label1.Text = Properties.Settings.Default.WORKING_PATH;
         }
 
         private void loadPathElements()
@@ -47,13 +48,16 @@ namespace PingTester
             using (ResXResourceSet resxSet = new ResXResourceSet(resxFile))
             {
                 //MessageBox.Show(resxSet.GetString("WORKING_PATH"));
-                string pathRes = resxSet.GetString("WORKING_PATH");
+                string pathRes = Properties.Settings.Default.WORKING_PATH;
+                MessageBox.Show(pathRes);
+                //string pathRes = resxSet.GetString("WORKING_PATH");
                 if (pathRes == "NULL")
                     MessageBox.Show("Choose a working path");
                 else
                 {
                     treeFiles.Nodes.Clear();
-                    foreach (var path in Directory.GetFiles(resxSet.GetString("WORKING_PATH")))
+                    // resxSet.GetString("WORKING_PATH")
+                    foreach (var path in Directory.GetFiles(Properties.Settings.Default.WORKING_PATH))
                     {
                         cmbFiles.Items.Add(Path.GetFileName(path));
                         treeFiles.Nodes.Add(Path.GetFileName(path));
@@ -80,17 +84,21 @@ namespace PingTester
 
         private void addPath_Click(object sender, EventArgs e)
         {
+            //Properties.Settings.Default.WORKING_PATH = "NULL";
+            //Properties.Settings.Default.Save();
             //AddPathResource();
             using (var fbd = new FolderBrowserDialog())
             {
-                ResXResourceWriter resxSet = new ResXResourceWriter(resxFile);
-                //resxSet.GetString("WORKING_PATH");
+                //    ResXResourceWriter resxSet = new ResXResourceWriter(resxFile);
+                //    //resxSet.GetString("WORKING_PATH");
                 DialogResult result = fbd.ShowDialog();
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    resxSet.AddResource("WORKING_PATH", fbd.SelectedPath.ToString());
-                    resxSet.Close();
+                    //resxSet.AddResource("WORKING_PATH", fbd.SelectedPath.ToString());
+                    //resxSet.Close();
+                    Properties.Settings.Default.WORKING_PATH = fbd.SelectedPath.ToString();
+                    Properties.Settings.Default.Save();
                 }
             }
 
