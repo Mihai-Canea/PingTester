@@ -15,9 +15,6 @@ namespace PingTester
 {
     public partial class Form1 : Form
     {
-        const string resxFile = @".\Form1.resx"; // relative directory to the executable file
-        const bool havePath = false;
-
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +23,7 @@ namespace PingTester
         private void Form1_Load(object sender, EventArgs e)
         {
             loadPathElements();
-            MyUserControls.ToolTestingControl am= new MyUserControls.ToolTestingControl();
+            MyUserControls.ToolTestingControl am = new MyUserControls.ToolTestingControl();
             am.ToolName = "amass";
             am.CommandTool = "/c amass enum -d tesla.com";
             flowLayoutPanel.Controls.Add(am);
@@ -40,36 +37,28 @@ namespace PingTester
             sub.ToolName = "subfinder";
             sub.CommandTool = "/c subfinder -d tesla.com";
             flowLayoutPanel.Controls.Add(sub);
-            label1.Text = Properties.Settings.Default.WORKING_PATH;
         }
 
         private void loadPathElements()
         {
-            using (ResXResourceSet resxSet = new ResXResourceSet(resxFile))
+            string pathRes = Properties.Settings.Default.WORKING_PATH;
+            if (pathRes == "NULL")
             {
-                //MessageBox.Show(resxSet.GetString("WORKING_PATH"));
-                string pathRes = Properties.Settings.Default.WORKING_PATH;
-                MessageBox.Show(pathRes);
-                //string pathRes = resxSet.GetString("WORKING_PATH");
-                if (pathRes == "NULL")
-                    MessageBox.Show("Choose a working path");
-                else
+                MessageBox.Show("Choose a working path");
+            }
+            else
+            {
+                treeFiles.Nodes.Clear();
+                foreach (var path in Directory.GetFiles(Properties.Settings.Default.WORKING_PATH))
                 {
-                    treeFiles.Nodes.Clear();
-                    // resxSet.GetString("WORKING_PATH")
-                    foreach (var path in Directory.GetFiles(Properties.Settings.Default.WORKING_PATH))
-                    {
-                        cmbFiles.Items.Add(Path.GetFileName(path));
-                        treeFiles.Nodes.Add(Path.GetFileName(path));
-
-                    }
+                    treeFiles.Nodes.Add(Path.GetFileName(path));
                 }
-
             }
         }
 
-        private void cmbFiles_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
+            loadPathElements();
         }
 
         private void treeFiles_DoubleClick(object sender, EventArgs e)
@@ -82,27 +71,10 @@ namespace PingTester
             get { return treeFiles.SelectedNode.Text; }
         }
 
-        private void addPath_Click(object sender, EventArgs e)
+        private void settingsiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Properties.Settings.Default.WORKING_PATH = "NULL";
-            //Properties.Settings.Default.Save();
-            //AddPathResource();
-            using (var fbd = new FolderBrowserDialog())
-            {
-                //    ResXResourceWriter resxSet = new ResXResourceWriter(resxFile);
-                //    //resxSet.GetString("WORKING_PATH");
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    //resxSet.AddResource("WORKING_PATH", fbd.SelectedPath.ToString());
-                    //resxSet.Close();
-                    Properties.Settings.Default.WORKING_PATH = fbd.SelectedPath.ToString();
-                    Properties.Settings.Default.Save();
-                }
-            }
-
-            loadPathElements();
+            SettingsForm sf = new SettingsForm();
+            sf.ShowDialog();
         }
 
     }

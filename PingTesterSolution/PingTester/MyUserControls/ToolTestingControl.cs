@@ -44,10 +44,10 @@ namespace PingTester.MyUserControls
         public void threadmethod(object path)
         {
             process = new Process();
-            process.StartInfo.WorkingDirectory = @"C:\ReconTools\";
+            process.StartInfo.WorkingDirectory = Properties.Settings.Default.TOOLS_PATH;
             process.StartInfo.FileName = "cmd";
             //process.StartInfo.Arguments = "/c dir";
-            process.StartInfo.Arguments =path.ToString();
+            process.StartInfo.Arguments = path.ToString();
 
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;

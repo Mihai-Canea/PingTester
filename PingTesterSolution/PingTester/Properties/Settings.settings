@@ -5,5 +5,8 @@
     <Setting Name="WORKING_PATH" Type="System.String" Scope="User">
       <Value Profile="(Default)">NULL</Value>
     </Setting>
+    <Setting Name="TOOLS_PATH" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NULL</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

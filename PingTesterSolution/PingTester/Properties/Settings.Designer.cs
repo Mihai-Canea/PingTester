@@ -34,5 +34,17 @@ namespace PingTester.Properties {
                 this["WORKING_PATH"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NULL")]
+        public string TOOLS_PATH {
+            get {
+                return ((string)(this["TOOLS_PATH"]));
+            }
+            set {
+                this["TOOLS_PATH"] = value;
+            }
+        }
     }
 }
