@@ -1,6 +1,6 @@
-﻿namespace Recon
+﻿namespace PingTester.MyUserControls
 {
-    partial class PingTester
+    partial class PingTesterControl
     {
         /// <summary> 
         /// Variabile di progettazione necessaria.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupElements = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lstUrls = new System.Windows.Forms.CheckedListBox();
@@ -41,6 +41,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.numPingTimeout = new System.Windows.Forms.NumericUpDown();
             this.lblPinging = new System.Windows.Forms.Label();
             this.btnExportSuccess = new System.Windows.Forms.Button();
             this.lblPath = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.btnFilter = new System.Windows.Forms.Button();
             this.cmbFilters = new System.Windows.Forms.ComboBox();
-            this.numPingTimeout = new System.Windows.Forms.NumericUpDown();
             this.groupElements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -63,9 +63,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuccess)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeout)).BeginInit();
             this.groupFilter.SuspendLayout();
             this.pnlFilterText.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeout)).BeginInit();
             this.SuspendLayout();
             // 
             // groupElements
@@ -76,7 +76,7 @@
             this.groupElements.Location = new System.Drawing.Point(0, 0);
             this.groupElements.Name = "groupElements";
             this.groupElements.Size = new System.Drawing.Size(688, 372);
-            this.groupElements.TabIndex = 0;
+            this.groupElements.TabIndex = 1;
             this.groupElements.TabStop = false;
             this.groupElements.Text = "Ping Tester";
             // 
@@ -136,14 +136,14 @@
             this.dgvResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResults.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResults.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvResults.Location = new System.Drawing.Point(0, 0);
             this.dgvResults.Name = "dgvResults";
@@ -169,14 +169,14 @@
             this.dgvSuccess.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSuccess.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSuccess.DefaultCellStyle = dataGridViewCellStyle24;
             this.dgvSuccess.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSuccess.Location = new System.Drawing.Point(0, 0);
             this.dgvSuccess.Name = "dgvSuccess";
@@ -209,6 +209,24 @@
             this.panel1.Size = new System.Drawing.Size(682, 74);
             this.panel1.TabIndex = 1;
             // 
+            // numPingTimeout
+            // 
+            this.numPingTimeout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.numPingTimeout.Location = new System.Drawing.Point(381, 20);
+            this.numPingTimeout.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.numPingTimeout.Name = "numPingTimeout";
+            this.numPingTimeout.Size = new System.Drawing.Size(63, 20);
+            this.numPingTimeout.TabIndex = 5;
+            this.numPingTimeout.Value = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            // 
             // lblPinging
             // 
             this.lblPinging.AutoSize = true;
@@ -219,7 +237,8 @@
             // 
             // btnExportSuccess
             // 
-            this.btnExportSuccess.Location = new System.Drawing.Point(381, 43);
+            this.btnExportSuccess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportSuccess.Location = new System.Drawing.Point(381, 46);
             this.btnExportSuccess.Name = "btnExportSuccess";
             this.btnExportSuccess.Size = new System.Drawing.Size(75, 23);
             this.btnExportSuccess.TabIndex = 3;
@@ -303,31 +322,14 @@
             this.cmbFilters.TabIndex = 2;
             this.cmbFilters.SelectedIndexChanged += new System.EventHandler(this.cmbFilters_SelectedIndexChanged);
             // 
-            // numPingTimeout
-            // 
-            this.numPingTimeout.Location = new System.Drawing.Point(128, 46);
-            this.numPingTimeout.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
-            this.numPingTimeout.Name = "numPingTimeout";
-            this.numPingTimeout.Size = new System.Drawing.Size(63, 20);
-            this.numPingTimeout.TabIndex = 5;
-            this.numPingTimeout.Value = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            // 
-            // PingTester
+            // PingTesterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupElements);
-            this.Name = "PingTester";
+            this.Name = "PingTesterControl";
             this.Size = new System.Drawing.Size(688, 372);
-            this.Load += new System.EventHandler(this.PingTester_Load);
+            this.Load += new System.EventHandler(this.PingTesterControl_Load);
             this.groupElements.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -341,10 +343,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuccess)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeout)).EndInit();
             this.groupFilter.ResumeLayout(false);
             this.pnlFilterText.ResumeLayout(false);
             this.pnlFilterText.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -352,25 +354,25 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupElements;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.CheckedListBox lstUrls;
+        private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.DataGridView dgvResults;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridView dgvSuccess;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.NumericUpDown numPingTimeout;
+        private System.Windows.Forms.Label lblPinging;
+        private System.Windows.Forms.Button btnExportSuccess;
+        private System.Windows.Forms.Label lblPath;
+        private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.GroupBox groupFilter;
         private System.Windows.Forms.Panel pnlFilterText;
         private System.Windows.Forms.TextBox txtFilter;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.ComboBox cmbFilters;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.CheckedListBox lstUrls;
-        private System.Windows.Forms.Label lblPath;
-        private System.Windows.Forms.Button btnCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.DataGridView dgvSuccess;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Button btnExportSuccess;
-        private System.Windows.Forms.Label lblPinging;
-        private System.Windows.Forms.NumericUpDown numPingTimeout;
     }
 }

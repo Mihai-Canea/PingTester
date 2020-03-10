@@ -20,23 +20,41 @@ namespace PingTester
             InitializeComponent();
         }
 
+        TreeNode nodeSelect;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             loadPathElements();
-            MyUserControls.ToolTestingControl am = new MyUserControls.ToolTestingControl();
-            am.ToolName = "amass";
-            am.CommandTool = "/c amass enum -d tesla.com";
-            flowLayoutPanel.Controls.Add(am);
+            //MyUserControls.ToolTestingControl am = new MyUserControls.ToolTestingControl();
+            //am.ToolName = "amass";
+            //am.CommandTool = "/c amass enum -d tesla.com";
+            //flowLayoutPanel.Controls.Add(am);
+
+            ContextMenu cm = new ContextMenu();
+            cm.MenuItems.Add("httprobe", new EventHandler(httprobe_Click));
+            treeFiles.ContextMenu = cm;
+
+            //treeFiles.ContextMenuStrip = cm;
+        }
+
+        private void treeFiles_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                nodeSelect = e.Node;
+            }
+        }
+
+        private void httprobe_Click(object sender, EventArgs e)
+        {
+            var clickedMenuItem = sender as MenuItem;
+            var menuText = clickedMenuItem.Text;
+            MessageBox.Show(nodeSelect.Text + " "+ menuText);
 
             MyUserControls.ToolTestingControl ht = new MyUserControls.ToolTestingControl();
             ht.ToolName = "httprobe";
-            ht.CommandTool = "/c cat sas.txt | httprobe -p http:8080 -p https:8443";
+            ht.CommandTool = $"/c cat {Properties.Settings.Default.WORKING_PATH}\\{nodeSelect.Text} | httprobe -p http:8080 -p https:8443";
             flowLayoutPanel.Controls.Add(ht);
-
-            MyUserControls.ToolTestingControl sub = new MyUserControls.ToolTestingControl();
-            sub.ToolName = "subfinder";
-            sub.CommandTool = "/c subfinder -d tesla.com";
-            flowLayoutPanel.Controls.Add(sub);
         }
 
         private void loadPathElements()
@@ -76,6 +94,15 @@ namespace PingTester
             SettingsForm sf = new SettingsForm();
             sf.ShowDialog();
         }
+
+        private void chkSubFinder_CheckedChanged(object sender, EventArgs e)
+        {
+            MyUserControls.ToolTestingControl sub = new MyUserControls.ToolTestingControl();
+            sub.ToolName = "subfinder";
+            sub.CommandTool = $"/c subfinder -d {txtDomain.Text}";
+            flowLayoutPanel.Controls.Add(sub);
+        }
+
 
     }
 }

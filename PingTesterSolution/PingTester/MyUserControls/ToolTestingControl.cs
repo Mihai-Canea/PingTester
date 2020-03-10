@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using System.IO;
 
 namespace PingTester.MyUserControls
 {
@@ -69,7 +70,7 @@ namespace PingTester.MyUserControls
             }
             catch (Exception)
             {
-                SetFinishText("httprobe finish");
+                SetFinishText($"{groupBoxTool.Text} finish");
             }
         }
 
@@ -77,13 +78,15 @@ namespace PingTester.MyUserControls
         private void SetTextBoxText(string text)
         {
 
-            if (this.txtUrls.InvokeRequired)
+            if (this.lstUrls.InvokeRequired)
             {
-                this.txtUrls.Invoke(new SetTextBoxTextInvoker(SetTextBoxText), text);
+                //this.txtUrls.Invoke(new SetTextBoxTextInvoker(SetTextBoxText), text);
+                this.lstUrls.Invoke(new SetTextBoxTextInvoker(SetTextBoxText), text);
             }
             else
             {
-                this.txtUrls.Text += text + Environment.NewLine;
+                //this.txtUrls.Text += text + Environment.NewLine;
+                this.lstUrls.Items.Add(text);
             }
         }
 
@@ -108,6 +111,16 @@ namespace PingTester.MyUserControls
             {
                 process.Kill();
             }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter sw = new StreamWriter($"{Properties.Settings.Default.WORKING_PATH}\\{groupBoxTool.Text}-Output.txt"))
+            {
+                for (int i = 0; i < lstUrls.Items.Count; i++)
+                    sw.WriteLine(lstUrls.Items[i]);
+            }
+            txtFinish.Text = "File exported";
         }
     }
 }

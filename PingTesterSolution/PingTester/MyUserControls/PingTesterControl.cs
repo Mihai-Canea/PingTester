@@ -7,21 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using System.Net.NetworkInformation;
+using System.IO;
 
-namespace Recon
+namespace PingTester.MyUserControls
 {
-    public partial class PingTester : UserControl
+    public partial class PingTesterControl : UserControl
     {
         const string WORKING_PATH = @"C:\Users\miche\Desktop\Projects\BurpFiles\Targets\PingTester";
 
-        public PingTester()
+        public PingTesterControl()
         {
             InitializeComponent();
         }
 
-        private void PingTester_Load(object sender, EventArgs e)
+        private void PingTesterControl_Load(object sender, EventArgs e)
         {
 
         }
@@ -35,7 +35,7 @@ namespace Recon
         {
             lstUrls.Items.Clear();
             //textBox1.Text = File.ReadAllText();
-            using (StreamReader sr = new StreamReader($"{WORKING_PATH}\\{lblPath.Text}"))
+            using (StreamReader sr = new StreamReader($"{Properties.Settings.Default.WORKING_PATH}\\{lblPath.Text}"))
             {
                 string line;
                 while (sr.Peek() != -1)
@@ -110,7 +110,7 @@ namespace Recon
 
         private void btnExportSuccess_Click(object sender, EventArgs e)
         {
-            using (StreamWriter sw = new StreamWriter("OutputSuccess.txt"))
+            using (StreamWriter sw = new StreamWriter($"{Properties.Settings.Default.WORKING_PATH}\\OutputSuccess.txt"))
             {
                 for (int i = 0; i < dgvSuccess.RowCount - 1; i++)
                     sw.WriteLine(dgvSuccess.Rows[i].Cells[0].Value);
