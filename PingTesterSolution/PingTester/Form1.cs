@@ -32,17 +32,16 @@ namespace PingTester
 
             ContextMenu cm = new ContextMenu();
             cm.MenuItems.Add("httprobe", new EventHandler(httprobe_Click));
+            cm.MenuItems.Add("Visualize", new EventHandler(VisualizeDocument_Click));
             treeFiles.ContextMenu = cm;
 
             //treeFiles.ContextMenuStrip = cm;
         }
 
-        private void treeFiles_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void VisualizeDocument_Click(object sender, EventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                nodeSelect = e.Node;
-            }
+            VisualizeSubsForm vsf = new VisualizeSubsForm(nodeSelect.Text);
+            vsf.Show();
         }
 
         private void httprobe_Click(object sender, EventArgs e)
@@ -56,6 +55,17 @@ namespace PingTester
             ht.CommandTool = $"/c cat {Properties.Settings.Default.WORKING_PATH}\\{nodeSelect.Text} | httprobe -p http:8080 -p https:8443";
             flowLayoutPanel.Controls.Add(ht);
         }
+
+        
+
+        private void treeFiles_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                nodeSelect = e.Node;
+            }
+        }
+
 
         private void loadPathElements()
         {
