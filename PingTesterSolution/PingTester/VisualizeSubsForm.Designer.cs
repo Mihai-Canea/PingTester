@@ -46,7 +46,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 46);
+            this.groupBox1.Size = new System.Drawing.Size(629, 46);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filters";
@@ -54,7 +54,7 @@
             // btnExport
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Location = new System.Drawing.Point(719, 17);
+            this.btnExport.Location = new System.Drawing.Point(548, 17);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 2;
@@ -65,7 +65,7 @@
             // btnFilter
             // 
             this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFilter.Location = new System.Drawing.Point(638, 17);
+            this.btnFilter.Location = new System.Drawing.Point(467, 17);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(75, 23);
             this.btnFilter.TabIndex = 3;
@@ -77,9 +77,9 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(301, 19);
+            this.textBox1.Location = new System.Drawing.Point(219, 19);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(331, 20);
+            this.textBox1.Size = new System.Drawing.Size(242, 20);
             this.textBox1.TabIndex = 1;
             // 
             // label1
@@ -98,14 +98,14 @@
             this.txtVisual.Multiline = true;
             this.txtVisual.Name = "txtVisual";
             this.txtVisual.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtVisual.Size = new System.Drawing.Size(800, 404);
+            this.txtVisual.Size = new System.Drawing.Size(629, 335);
             this.txtVisual.TabIndex = 2;
             // 
             // VisualizeSubsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(629, 381);
             this.Controls.Add(this.txtVisual);
             this.Controls.Add(this.groupBox1);
             this.Name = "VisualizeSubsForm";

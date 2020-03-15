@@ -32,16 +32,15 @@ namespace PingTester
 
             ContextMenu cm = new ContextMenu();
             cm.MenuItems.Add("httprobe", new EventHandler(httprobe_Click));
-            cm.MenuItems.Add("Visualize", new EventHandler(VisualizeDocument_Click));
+            cm.MenuItems.Add("Ping domains", new EventHandler(PingDomains_Click));
             treeFiles.ContextMenu = cm;
 
             //treeFiles.ContextMenuStrip = cm;
         }
 
-        private void VisualizeDocument_Click(object sender, EventArgs e)
+        private void PingDomains_Click(object sender, EventArgs e)
         {
-            VisualizeSubsForm vsf = new VisualizeSubsForm(nodeSelect.Text);
-            vsf.Show();
+            pingTester.PATH = PATH;
         }
 
         private void httprobe_Click(object sender, EventArgs e)
@@ -91,7 +90,8 @@ namespace PingTester
 
         private void treeFiles_DoubleClick(object sender, EventArgs e)
         {
-            pingTester.PATH = PATH;
+            VisualizeSubsForm vsf = new VisualizeSubsForm(treeFiles.SelectedNode.Text);
+            vsf.Show();
         }
 
         public string PATH
