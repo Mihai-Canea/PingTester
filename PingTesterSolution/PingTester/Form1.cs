@@ -25,20 +25,23 @@ namespace PingTester
         private void Form1_Load(object sender, EventArgs e)
         {
             loadPathElements();
-            //MyUserControls.ToolTestingControl am = new MyUserControls.ToolTestingControl();
-            //am.ToolName = "amass";
-            //am.CommandTool = "/c amass enum -d tesla.com";
-            //flowLayoutPanel.Controls.Add(am);
 
             ContextMenu cm = new ContextMenu();
             cm.MenuItems.Add("httprobe", new EventHandler(httprobe_Click));
             cm.MenuItems.Add("Ping domains", new EventHandler(PingDomains_Click));
             cm.MenuItems.Add("-");
             cm.MenuItems.Add("Show in directory");
-            cm.MenuItems.Add("Delete");
+            cm.MenuItems.Add("Delete", new EventHandler(DeleteFile_Click));
             treeFiles.ContextMenu = cm;
 
             //treeFiles.ContextMenuStrip = cm;
+        }
+
+        private void DeleteFile_Click(object sender, EventArgs e)
+        {
+            string _fileDel = $"{Properties.Settings.Default.WORKING_PATH}\\{nodeSelect.Text}";
+            if (File.Exists(_fileDel))
+                File.Delete(_fileDel);
         }
 
         private void PingDomains_Click(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace PingTester
         {
             var clickedMenuItem = sender as MenuItem;
             var menuText = clickedMenuItem.Text;
-            MessageBox.Show(nodeSelect.Text + " "+ menuText);
+            MessageBox.Show(nodeSelect.Text + " " + menuText);
 
             MyUserControls.ToolTestingControl ht = new MyUserControls.ToolTestingControl();
             ht.ToolName = "httprobe";
@@ -58,7 +61,7 @@ namespace PingTester
             flowLayoutPanel.Controls.Add(ht);
         }
 
-        
+
 
         private void treeFiles_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -110,12 +113,12 @@ namespace PingTester
 
         private void chkSubFinder_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void chkAmass_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnRecon_Click(object sender, EventArgs e)
