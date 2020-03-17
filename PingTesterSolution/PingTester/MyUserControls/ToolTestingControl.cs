@@ -115,7 +115,8 @@ namespace PingTester.MyUserControls
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            using (StreamWriter sw = new StreamWriter($"{Properties.Settings.Default.WORKING_PATH}\\{groupBoxTool.Text}-Output.txt"))
+            DateTime dateTime = DateTime.UtcNow.Date;
+            using (StreamWriter sw = new StreamWriter($"{Properties.Settings.Default.WORKING_PATH}\\{dateTime.ToString("dd-MM-yyyy")}{groupBoxTool.Text}-Output.txt"))
             {
                 for (int i = 0; i < lstUrls.Items.Count; i++)
                     sw.WriteLine(lstUrls.Items[i]);

@@ -33,6 +33,9 @@ namespace PingTester
             ContextMenu cm = new ContextMenu();
             cm.MenuItems.Add("httprobe", new EventHandler(httprobe_Click));
             cm.MenuItems.Add("Ping domains", new EventHandler(PingDomains_Click));
+            cm.MenuItems.Add("-");
+            cm.MenuItems.Add("Show in directory");
+            cm.MenuItems.Add("Delete");
             treeFiles.ContextMenu = cm;
 
             //treeFiles.ContextMenuStrip = cm;
@@ -107,12 +110,31 @@ namespace PingTester
 
         private void chkSubFinder_CheckedChanged(object sender, EventArgs e)
         {
-            MyUserControls.ToolTestingControl sub = new MyUserControls.ToolTestingControl();
-            sub.ToolName = "subfinder";
-            sub.CommandTool = $"/c subfinder -d {txtDomain.Text}";
-            flowLayoutPanel.Controls.Add(sub);
+            
         }
 
+        private void chkAmass_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void btnRecon_Click(object sender, EventArgs e)
+        {
+            if (chkAmass.Checked)
+            {
+                MyUserControls.ToolTestingControl am = new MyUserControls.ToolTestingControl();
+                am.ToolName = "amass";
+                // amass enum -v -brute -min-for-recursive 2 -d tesla.com
+                am.CommandTool = $"/c amass enum -v -brute -min-for-recursive 2 -d {txtDomain.Text}";
+                flowLayoutPanel.Controls.Add(am);
+            }
+            if (chkSubFinder.Checked)
+            {
+                MyUserControls.ToolTestingControl sub = new MyUserControls.ToolTestingControl();
+                sub.ToolName = "subfinder";
+                sub.CommandTool = $"/c subfinder -d {txtDomain.Text}";
+                flowLayoutPanel.Controls.Add(sub);
+            }
+        }
     }
 }

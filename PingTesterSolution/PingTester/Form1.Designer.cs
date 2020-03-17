@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDomain = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkAmass = new System.Windows.Forms.CheckBox();
+            this.chkSubFinder = new System.Windows.Forms.CheckBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.treeFiles = new System.Windows.Forms.TreeView();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,37 +60,75 @@
             this.cercaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.informazionisuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkSubFinder = new System.Windows.Forms.CheckBox();
-            this.txtDomain = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnRecon = new System.Windows.Forms.Button();
             this.pingTester = new PingTester.MyUserControls.PingTesterControl();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.treeFiles);
-            this.groupBox1.Location = new System.Drawing.Point(0, 47);
+            this.groupBox1.Location = new System.Drawing.Point(0, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 548);
+            this.groupBox1.Size = new System.Drawing.Size(222, 568);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
+            // 
+            // txtDomain
+            // 
+            this.txtDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDomain.Location = new System.Drawing.Point(229, 27);
+            this.txtDomain.Name = "txtDomain";
+            this.txtDomain.Size = new System.Drawing.Size(266, 31);
+            this.txtDomain.TabIndex = 1;
+            this.txtDomain.Text = "tesla.com";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chkAmass);
+            this.groupBox2.Controls.Add(this.chkSubFinder);
+            this.groupBox2.Location = new System.Drawing.Point(0, 298);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(216, 66);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tools";
+            // 
+            // chkAmass
+            // 
+            this.chkAmass.AutoSize = true;
+            this.chkAmass.Location = new System.Drawing.Point(12, 42);
+            this.chkAmass.Name = "chkAmass";
+            this.chkAmass.Size = new System.Drawing.Size(57, 17);
+            this.chkAmass.TabIndex = 1;
+            this.chkAmass.Text = "Amass";
+            this.chkAmass.UseVisualStyleBackColor = true;
+            this.chkAmass.CheckedChanged += new System.EventHandler(this.chkAmass_CheckedChanged);
+            // 
+            // chkSubFinder
+            // 
+            this.chkSubFinder.AutoSize = true;
+            this.chkSubFinder.Location = new System.Drawing.Point(12, 19);
+            this.chkSubFinder.Name = "chkSubFinder";
+            this.chkSubFinder.Size = new System.Drawing.Size(69, 17);
+            this.chkSubFinder.TabIndex = 0;
+            this.chkSubFinder.Text = "subfinder";
+            this.chkSubFinder.UseVisualStyleBackColor = true;
+            this.chkSubFinder.CheckedChanged += new System.EventHandler(this.chkSubFinder_CheckedChanged);
             // 
             // btnRefresh
             // 
             this.btnRefresh.Location = new System.Drawing.Point(0, 19);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(39, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(57, 23);
             this.btnRefresh.TabIndex = 5;
-            this.btnRefresh.Text = "R";
+            this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -95,33 +136,21 @@
             // 
             this.treeFiles.Location = new System.Drawing.Point(0, 48);
             this.treeFiles.Name = "treeFiles";
-            this.treeFiles.Size = new System.Drawing.Size(177, 244);
+            this.treeFiles.Size = new System.Drawing.Size(216, 244);
             this.treeFiles.TabIndex = 4;
             this.treeFiles.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeFiles_NodeMouseClick);
             this.treeFiles.DoubleClick += new System.EventHandler(this.treeFiles_DoubleClick);
             // 
             // flowLayoutPanel
             // 
-            this.flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(183, 47);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(228, 64);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(509, 536);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(608, 640);
             this.flowLayoutPanel.TabIndex = 3;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.toolsToolStripMenuItem,
-            this.ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1305, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -301,61 +330,47 @@
             this.informazionisuToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.informazionisuToolStripMenuItem.Text = "&Informazioni su...";
             // 
-            // groupBox2
+            // menuStrip1
             // 
-            this.groupBox2.Controls.Add(this.chkSubFinder);
-            this.groupBox2.Location = new System.Drawing.Point(0, 298);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(177, 66);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tools";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.toolsToolStripMenuItem,
+            this.ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1215, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // chkSubFinder
+            // btnRecon
             // 
-            this.chkSubFinder.AutoSize = true;
-            this.chkSubFinder.Location = new System.Drawing.Point(12, 19);
-            this.chkSubFinder.Name = "chkSubFinder";
-            this.chkSubFinder.Size = new System.Drawing.Size(69, 17);
-            this.chkSubFinder.TabIndex = 0;
-            this.chkSubFinder.Text = "subfinder";
-            this.chkSubFinder.UseVisualStyleBackColor = true;
-            this.chkSubFinder.CheckedChanged += new System.EventHandler(this.chkSubFinder_CheckedChanged);
-            // 
-            // txtDomain
-            // 
-            this.txtDomain.Location = new System.Drawing.Point(6, 19);
-            this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(165, 20);
-            this.txtDomain.TabIndex = 1;
-            this.txtDomain.Text = "tesla.com";
+            this.btnRecon.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecon.Location = new System.Drawing.Point(501, 27);
+            this.btnRecon.Name = "btnRecon";
+            this.btnRecon.Size = new System.Drawing.Size(100, 31);
+            this.btnRecon.TabIndex = 6;
+            this.btnRecon.Text = "Recon";
+            this.btnRecon.UseVisualStyleBackColor = true;
+            this.btnRecon.Click += new System.EventHandler(this.btnRecon_Click);
             // 
             // pingTester
             // 
-            this.pingTester.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pingTester.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pingTester.Location = new System.Drawing.Point(698, 47);
+            this.pingTester.Location = new System.Drawing.Point(842, 37);
             this.pingTester.Name = "pingTester";
-            this.pingTester.Size = new System.Drawing.Size(595, 536);
-            this.pingTester.TabIndex = 5;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtDomain);
-            this.groupBox3.Location = new System.Drawing.Point(0, 371);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(177, 55);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Domain";
+            this.pingTester.Size = new System.Drawing.Size(361, 667);
+            this.pingTester.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1305, 595);
+            this.ClientSize = new System.Drawing.Size(1215, 716);
             this.Controls.Add(this.pingTester);
+            this.Controls.Add(this.btnRecon);
+            this.Controls.Add(this.txtDomain);
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -364,12 +379,10 @@
             this.Text = "Ping tester";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,7 +394,9 @@
         private System.Windows.Forms.TreeView treeFiles;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox chkSubFinder;
+        private System.Windows.Forms.TextBox txtDomain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -406,11 +421,10 @@
         private System.Windows.Forms.ToolStripMenuItem cercaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem informazionisuToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox chkSubFinder;
-        private System.Windows.Forms.TextBox txtDomain;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.CheckBox chkAmass;
+        private System.Windows.Forms.Button btnRecon;
         private MyUserControls.PingTesterControl pingTester;
-        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 

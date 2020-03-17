@@ -14,7 +14,6 @@ namespace PingTester.MyUserControls
 {
     public partial class PingTesterControl : UserControl
     {
-        const string WORKING_PATH = @"C:\Users\miche\Desktop\Projects\BurpFiles\Targets\PingTester";
 
         public PingTesterControl()
         {
@@ -33,15 +32,14 @@ namespace PingTester.MyUserControls
 
         private void lblPath_TextChanged(object sender, EventArgs e)
         {
-            lstUrls.Items.Clear();
-            //textBox1.Text = File.ReadAllText();
+            dgvSuccess.Rows.Clear();
             using (StreamReader sr = new StreamReader($"{Properties.Settings.Default.WORKING_PATH}\\{lblPath.Text}"))
             {
                 string line;
                 while (sr.Peek() != -1)
                 {
                     line = sr.ReadLine();
-                    lstUrls.Items.Add(line);
+                    dgvSuccess.Rows.Add(line, "");
                 }
                 sr.Close();
             }
@@ -49,7 +47,6 @@ namespace PingTester.MyUserControls
 
         private async void btnCheck_Click(object sender, EventArgs e)
         {
-            dgvResults.Rows.Clear();
             IPStatus status;
             Func<string, Task<IPStatus>> func =
                     async (localUrl) =>
@@ -61,59 +58,33 @@ namespace PingTester.MyUserControls
                         return pingReply.Status;
                     };
 
-            for (int i = 0; i < lstUrls.Items.Count; i++)
+            for (int i = 0; i < dgvSuccess.Rows.Count - 1; i++)
             {
-                //MessageBox.Show(lstUrls.Items[i].ToString());
-                if (lstUrls.Items[i].ToString() != "")
+                if (dgvSuccess.Rows[i].Cells[0].Value.ToString() != "")
                 {
                     try
                     {
-                        lblPinging.Text = $"Pinging... {i}";
-                        status = await func(lstUrls.Items[i].ToString());
-                        dgvResults.Rows.Add(lstUrls.Items[i].ToString(), status);
-                        dgvResults.FirstDisplayedScrollingRowIndex = dgvResults.RowCount - 1;
-                        lstUrls.SetItemChecked(i, true);
+                        lblPinging.Text = $">>> Ping... {i + 1}/{(dgvSuccess.Rows.Count - 1)}";
+                        status = await func(dgvSuccess.Rows[i].Cells[0].Value.ToString());
+                        dgvSuccess.Rows[i].Cells[1].Value = status;
                     }
                     catch (Exception)
                     {
-                        Console.WriteLine($"Errore alla riga :{i} {lstUrls.Items[i].ToString()}");
+                        Console.WriteLine($"Errore alla riga :{i} {dgvSuccess.Rows[i].ToString()}");
                     }
                 }
             }
-            //lblPinging.Text = "";
-        }
-
-
-        private void cmbFilters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            pnlFilterText.Visible = false;
-            dgvSuccess.Rows.Clear();
-            switch (cmbFilters.Text)
-            {
-                case "Text":
-                    pnlFilterText.Visible = true;
-                    break;
-                case "Success":
-                    btnExportSuccess.Visible = true;
-                    for (int i = 0; i < dgvResults.RowCount - 1; i++)
-                    {
-                        if (dgvResults.Rows[i].Cells[1].Value.ToString() == "Success")
-                        {
-                            dgvSuccess.Rows.Add(dgvResults.Rows[i].Cells[0].Value, "Success");
-                        }
-                    }
-                    break;
-                case "TimedOut":
-                    break;
-            }
+            lblPinging.Text = ">>> Complete";
         }
 
         private void btnExportSuccess_Click(object sender, EventArgs e)
         {
-            using (StreamWriter sw = new StreamWriter($"{Properties.Settings.Default.WORKING_PATH}\\OutputSuccess.txt"))
+            using (StreamWriter sw = new StreamWriter($"{Properties.Settings.Default.WORKING_PATH}\\PingOutputSuccess.txt"))
             {
                 for (int i = 0; i < dgvSuccess.RowCount - 1; i++)
-                    sw.WriteLine(dgvSuccess.Rows[i].Cells[0].Value);
+                    if (dgvSuccess.Rows[i].Cells[1].Value.ToString() == "Success")
+                        sw.WriteLine(dgvSuccess.Rows[i].Cells[0].Value);
+                sw.Close();
             }
         }
     }
