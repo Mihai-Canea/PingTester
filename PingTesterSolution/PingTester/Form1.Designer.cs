@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnFolder = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkAmass = new System.Windows.Forms.CheckBox();
             this.chkSubFinder = new System.Windows.Forms.CheckBox();
@@ -63,7 +64,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnRecon = new System.Windows.Forms.Button();
             this.pingTester = new PingTester.MyUserControls.PingTesterControl();
-            this.btnFolder = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -77,10 +77,20 @@
             this.groupBox1.Controls.Add(this.treeFiles);
             this.groupBox1.Location = new System.Drawing.Point(0, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(222, 568);
+            this.groupBox1.Size = new System.Drawing.Size(260, 568);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
+            // 
+            // btnFolder
+            // 
+            this.btnFolder.Location = new System.Drawing.Point(13, 371);
+            this.btnFolder.Name = "btnFolder";
+            this.btnFolder.Size = new System.Drawing.Size(75, 23);
+            this.btnFolder.TabIndex = 7;
+            this.btnFolder.Text = "Show";
+            this.btnFolder.UseVisualStyleBackColor = true;
+            this.btnFolder.Click += new System.EventHandler(this.btnFolder_Click);
             // 
             // groupBox2
             // 
@@ -88,7 +98,7 @@
             this.groupBox2.Controls.Add(this.chkSubFinder);
             this.groupBox2.Location = new System.Drawing.Point(0, 298);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(216, 66);
+            this.groupBox2.Size = new System.Drawing.Size(254, 66);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tools";
@@ -129,7 +139,7 @@
             // 
             this.treeFiles.Location = new System.Drawing.Point(0, 48);
             this.treeFiles.Name = "treeFiles";
-            this.treeFiles.Size = new System.Drawing.Size(216, 244);
+            this.treeFiles.Size = new System.Drawing.Size(254, 244);
             this.treeFiles.TabIndex = 4;
             this.treeFiles.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeFiles_NodeMouseClick);
             this.treeFiles.DoubleClick += new System.EventHandler(this.treeFiles_DoubleClick);
@@ -137,7 +147,7 @@
             // txtDomain
             // 
             this.txtDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDomain.Location = new System.Drawing.Point(229, 27);
+            this.txtDomain.Location = new System.Drawing.Point(266, 27);
             this.txtDomain.Name = "txtDomain";
             this.txtDomain.Size = new System.Drawing.Size(266, 31);
             this.txtDomain.TabIndex = 1;
@@ -149,9 +159,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(228, 64);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(266, 64);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(608, 640);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(570, 640);
             this.flowLayoutPanel.TabIndex = 3;
             // 
             // fileToolStripMenuItem
@@ -364,16 +374,6 @@
             this.pingTester.Name = "pingTester";
             this.pingTester.Size = new System.Drawing.Size(361, 667);
             this.pingTester.TabIndex = 7;
-            // 
-            // btnFolder
-            // 
-            this.btnFolder.Location = new System.Drawing.Point(13, 371);
-            this.btnFolder.Name = "btnFolder";
-            this.btnFolder.Size = new System.Drawing.Size(75, 23);
-            this.btnFolder.TabIndex = 7;
-            this.btnFolder.Text = "Show";
-            this.btnFolder.UseVisualStyleBackColor = true;
-            this.btnFolder.Click += new System.EventHandler(this.btnFolder_Click);
             // 
             // Form1
             // 

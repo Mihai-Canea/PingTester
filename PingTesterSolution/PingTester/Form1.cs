@@ -86,11 +86,8 @@ namespace PingTester
             }
             else
             {
-                treeFiles.Nodes.Clear();
-                foreach (var path in Directory.GetFiles(Properties.Settings.Default.WORKING_PATH))
-                {
-                    treeFiles.Nodes.Add(Path.GetFileName(path));
-                }
+                ListDirectory(treeFiles, Properties.Settings.Default.WORKING_PATH);
+                treeFiles.ExpandAll();
             }
         }
 
@@ -101,10 +98,7 @@ namespace PingTester
 
         private void treeFiles_DoubleClick(object sender, EventArgs e)
         {
-            string path = treeFiles.SelectedNode.FullPath;
-            string [] arr = path.Split('\\');
-            arr = arr.Skip(1).ToArray();
-            VisualizeSubsForm vsf = new VisualizeSubsForm(string.Join("\\",arr));
+            VisualizeSubsForm vsf = new VisualizeSubsForm(treeFiles.SelectedNode.FullPath);
             vsf.Show();
         }
 

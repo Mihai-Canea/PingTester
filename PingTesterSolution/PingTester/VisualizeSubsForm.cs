@@ -17,7 +17,9 @@ namespace PingTester
         {
             InitializeComponent();
             this.label1.Text = fileName;
-            using (StreamReader sr = new StreamReader($"{Properties.Settings.Default.WORKING_PATH}\\{fileName}"))
+            string[] arr = fileName.Split('\\');
+            arr = arr.Skip(1).ToArray();
+            using (StreamReader sr = new StreamReader($"{Properties.Settings.Default.WORKING_PATH}\\{string.Join("\\", arr)}"))
             {
                 string line;
                 while (sr.Peek() != -1)
