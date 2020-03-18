@@ -17,7 +17,6 @@ namespace PingTester
         {
             InitializeComponent();
             this.label1.Text = fileName;
-
             using (StreamReader sr = new StreamReader($"{Properties.Settings.Default.WORKING_PATH}\\{fileName}"))
             {
                 string line;

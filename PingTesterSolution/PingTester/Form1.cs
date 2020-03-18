@@ -35,6 +35,11 @@ namespace PingTester
             treeFiles.ContextMenu = cm;
 
             //treeFiles.ContextMenuStrip = cm;
+            //MyUserControls.ToolTestingControl ht = new MyUserControls.ToolTestingControl();
+            //ht.ToolName = "dirsearch";
+            //ht.CommandTool = $"/c cd dirsearch | python dirsearch.py -u http://beta-msp.bitdefender.com -e -t";
+            //flowLayoutPanel.Controls.Add(ht);
+
         }
 
         private void DeleteFile_Click(object sender, EventArgs e)
@@ -96,7 +101,10 @@ namespace PingTester
 
         private void treeFiles_DoubleClick(object sender, EventArgs e)
         {
-            VisualizeSubsForm vsf = new VisualizeSubsForm(treeFiles.SelectedNode.Text);
+            string path = treeFiles.SelectedNode.FullPath;
+            string [] arr = path.Split('\\');
+            arr = arr.Skip(1).ToArray();
+            VisualizeSubsForm vsf = new VisualizeSubsForm(string.Join("\\",arr));
             vsf.Show();
         }
 
@@ -139,5 +147,35 @@ namespace PingTester
                 flowLayoutPanel.Controls.Add(sub);
             }
         }
+
+        private void btnFolder_Click(object sender, EventArgs e)
+        {
+            ListDirectory(treeFiles, Properties.Settings.Default.WORKING_PATH);
+            treeFiles.ExpandAll();
+        }
+
+        private void ListDirectory(TreeView treeView, string path)
+        {
+            treeView.Nodes.Clear();
+            var rootDirectoryInfo = new DirectoryInfo(path);
+            treeView.Nodes.Add(CreateDirectoryNode(rootDirectoryInfo));
+        }
+
+        private static TreeNode CreateDirectoryNode(DirectoryInfo directoryInfo)
+        {
+            var directoryNode = new TreeNode(directoryInfo.Name);
+            foreach (var directory in directoryInfo.GetDirectories())
+            {
+                directoryNode.Nodes.Add(CreateDirectoryNode(directory));
+            }
+
+            foreach (var file in directoryInfo.GetFiles())
+            {
+                directoryNode.Nodes.Add(new TreeNode(file.Name));
+            }
+
+            return directoryNode;
+        }
+
     }
 }

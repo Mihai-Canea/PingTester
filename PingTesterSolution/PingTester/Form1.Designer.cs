@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtDomain = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkAmass = new System.Windows.Forms.CheckBox();
             this.chkSubFinder = new System.Windows.Forms.CheckBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.treeFiles = new System.Windows.Forms.TreeView();
+            this.txtDomain = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +63,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnRecon = new System.Windows.Forms.Button();
             this.pingTester = new PingTester.MyUserControls.PingTesterControl();
+            this.btnFolder = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnFolder);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.treeFiles);
@@ -79,15 +81,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
-            // 
-            // txtDomain
-            // 
-            this.txtDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDomain.Location = new System.Drawing.Point(229, 27);
-            this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(266, 31);
-            this.txtDomain.TabIndex = 1;
-            this.txtDomain.Text = "tesla.com";
             // 
             // groupBox2
             // 
@@ -140,6 +133,15 @@
             this.treeFiles.TabIndex = 4;
             this.treeFiles.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeFiles_NodeMouseClick);
             this.treeFiles.DoubleClick += new System.EventHandler(this.treeFiles_DoubleClick);
+            // 
+            // txtDomain
+            // 
+            this.txtDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDomain.Location = new System.Drawing.Point(229, 27);
+            this.txtDomain.Name = "txtDomain";
+            this.txtDomain.Size = new System.Drawing.Size(266, 31);
+            this.txtDomain.TabIndex = 1;
+            this.txtDomain.Text = "tesla.com";
             // 
             // flowLayoutPanel
             // 
@@ -363,6 +365,16 @@
             this.pingTester.Size = new System.Drawing.Size(361, 667);
             this.pingTester.TabIndex = 7;
             // 
+            // btnFolder
+            // 
+            this.btnFolder.Location = new System.Drawing.Point(13, 371);
+            this.btnFolder.Name = "btnFolder";
+            this.btnFolder.Size = new System.Drawing.Size(75, 23);
+            this.btnFolder.TabIndex = 7;
+            this.btnFolder.Text = "Show";
+            this.btnFolder.UseVisualStyleBackColor = true;
+            this.btnFolder.Click += new System.EventHandler(this.btnFolder_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,6 +437,7 @@
         private System.Windows.Forms.CheckBox chkAmass;
         private System.Windows.Forms.Button btnRecon;
         private MyUserControls.PingTesterControl pingTester;
+        private System.Windows.Forms.Button btnFolder;
     }
 }
 
