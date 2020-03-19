@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnFolder = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -137,6 +138,8 @@
             // 
             // treeFiles
             // 
+            this.treeFiles.BackColor = System.Drawing.SystemColors.Control;
+            this.treeFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.treeFiles.Location = new System.Drawing.Point(0, 48);
             this.treeFiles.Name = "treeFiles";
             this.treeFiles.Size = new System.Drawing.Size(254, 244);

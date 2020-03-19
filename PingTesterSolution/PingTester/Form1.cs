@@ -98,8 +98,16 @@ namespace PingTester
 
         private void treeFiles_DoubleClick(object sender, EventArgs e)
         {
-            VisualizeSubsForm vsf = new VisualizeSubsForm(treeFiles.SelectedNode.FullPath);
-            vsf.Show();
+            string[] arr = treeFiles.SelectedNode.FullPath.Split('\\');
+            arr = arr.Skip(1).ToArray();
+            FileAttributes attr = File.GetAttributes($"{Properties.Settings.Default.WORKING_PATH}\\{ string.Join("\\", arr)}");
+            if (!attr.HasFlag(FileAttributes.Directory))
+            {
+                VisualizeSubsForm vsf = new VisualizeSubsForm(treeFiles.SelectedNode.FullPath);
+                vsf.Show();
+            }
+            else
+                MessageBox.Show("That is a directory");
         }
 
         public string PATH
