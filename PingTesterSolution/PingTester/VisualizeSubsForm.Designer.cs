@@ -109,6 +109,7 @@
             this.Controls.Add(this.txtVisual);
             this.Controls.Add(this.groupBox1);
             this.Name = "VisualizeSubsForm";
+            this.ShowIcon = false;
             this.Text = "VisualizeSubsForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

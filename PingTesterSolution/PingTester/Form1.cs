@@ -21,8 +21,15 @@ namespace PingTester
             InitializeComponent(); var theme = new VS2015LightTheme();
             this.dockPanel1.Theme = theme;
             this.IsMdiContainer = true;
+
             myForms.FileExplorer fe = new myForms.FileExplorer();
             fe.Show(dockPanel1, DockState.DockLeft);
+
+            myForms.ReconTools rt = new myForms.ReconTools();
+            rt.Show(dockPanel1, DockState.DockRight);
+
+            VisualizeSubsForm vs = new VisualizeSubsForm("\\test.txt");
+            vs.Show(dockPanel1, DockState.Document);
         }
 
         TreeNode nodeSelect;
@@ -68,16 +75,16 @@ namespace PingTester
 
         private void treeFiles_DoubleClick(object sender, EventArgs e)
         {
-            string[] arr = treeFiles.SelectedNode.FullPath.Split('\\');
-            arr = arr.Skip(1).ToArray();
-            FileAttributes attr = File.GetAttributes($"{Properties.Settings.Default.WORKING_PATH}\\{ string.Join("\\", arr)}");
-            if (!attr.HasFlag(FileAttributes.Directory))
-            {
-                VisualizeSubsForm vsf = new VisualizeSubsForm(treeFiles.SelectedNode.FullPath);
-                vsf.Show();
-            }
-            else
-                MessageBox.Show("That is a directory");
+            //string[] arr = treeFiles.SelectedNode.FullPath.Split('\\');
+            //arr = arr.Skip(1).ToArray();
+            //FileAttributes attr = File.GetAttributes($"{Properties.Settings.Default.WORKING_PATH}\\{ string.Join("\\", arr)}");
+            //if (!attr.HasFlag(FileAttributes.Directory))
+            //{
+            //    VisualizeSubsForm vsf = new VisualizeSubsForm(treeFiles.SelectedNode.FullPath);
+            //    vsf.Show();
+            //}
+            //else
+            //    MessageBox.Show("That is a directory");
         }
 
         //public string PATH

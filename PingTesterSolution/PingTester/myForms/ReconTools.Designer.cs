@@ -31,6 +31,8 @@
             this.chkAmass = new System.Windows.Forms.CheckBox();
             this.chkSubFinder = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // chkAmass
@@ -63,11 +65,33 @@
             this.checkBox1.Text = "Sublist3r";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(12, 81);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(65, 17);
+            this.checkBox2.TabIndex = 3;
+            this.checkBox2.Text = "httprobe";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(12, 104);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(69, 17);
+            this.checkBox3.TabIndex = 4;
+            this.checkBox3.Text = "dirsearch";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
             // ReconTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 309);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.chkAmass);
             this.Controls.Add(this.chkSubFinder);
@@ -85,5 +109,7 @@
         private System.Windows.Forms.CheckBox chkAmass;
         private System.Windows.Forms.CheckBox chkSubFinder;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }

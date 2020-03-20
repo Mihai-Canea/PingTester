@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace PingTester
 {
-    public partial class VisualizeSubsForm : Form
+    public partial class VisualizeSubsForm : DockContent
     {
         public VisualizeSubsForm(String fileName)
         {

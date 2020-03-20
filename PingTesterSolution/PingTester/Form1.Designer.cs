@@ -28,15 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnFolder = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkAmass = new System.Windows.Forms.CheckBox();
-            this.chkSubFinder = new System.Windows.Forms.CheckBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.treeFiles = new System.Windows.Forms.TreeView();
-            this.txtDomain = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,110 +53,9 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.informazionisuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnRecon = new System.Windows.Forms.Button();
-            this.pingTester = new PingTester.MyUserControls.PingTesterControl();
             this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnFolder);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.btnRefresh);
-            this.groupBox1.Controls.Add(this.treeFiles);
-            this.groupBox1.Location = new System.Drawing.Point(0, 27);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 437);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Options";
-            // 
-            // btnFolder
-            // 
-            this.btnFolder.Location = new System.Drawing.Point(13, 371);
-            this.btnFolder.Name = "btnFolder";
-            this.btnFolder.Size = new System.Drawing.Size(75, 23);
-            this.btnFolder.TabIndex = 7;
-            this.btnFolder.Text = "Show";
-            this.btnFolder.UseVisualStyleBackColor = true;
-            this.btnFolder.Click += new System.EventHandler(this.btnFolder_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.chkAmass);
-            this.groupBox2.Controls.Add(this.chkSubFinder);
-            this.groupBox2.Location = new System.Drawing.Point(0, 298);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(254, 66);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tools";
-            // 
-            // chkAmass
-            // 
-            this.chkAmass.AutoSize = true;
-            this.chkAmass.Location = new System.Drawing.Point(12, 42);
-            this.chkAmass.Name = "chkAmass";
-            this.chkAmass.Size = new System.Drawing.Size(57, 17);
-            this.chkAmass.TabIndex = 1;
-            this.chkAmass.Text = "Amass";
-            this.chkAmass.UseVisualStyleBackColor = true;
-            this.chkAmass.CheckedChanged += new System.EventHandler(this.chkAmass_CheckedChanged);
-            // 
-            // chkSubFinder
-            // 
-            this.chkSubFinder.AutoSize = true;
-            this.chkSubFinder.Location = new System.Drawing.Point(12, 19);
-            this.chkSubFinder.Name = "chkSubFinder";
-            this.chkSubFinder.Size = new System.Drawing.Size(69, 17);
-            this.chkSubFinder.TabIndex = 0;
-            this.chkSubFinder.Text = "subfinder";
-            this.chkSubFinder.UseVisualStyleBackColor = true;
-            this.chkSubFinder.CheckedChanged += new System.EventHandler(this.chkSubFinder_CheckedChanged);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(0, 19);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(57, 23);
-            this.btnRefresh.TabIndex = 5;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // treeFiles
-            // 
-            this.treeFiles.BackColor = System.Drawing.SystemColors.Control;
-            this.treeFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeFiles.Location = new System.Drawing.Point(0, 48);
-            this.treeFiles.Name = "treeFiles";
-            this.treeFiles.Size = new System.Drawing.Size(254, 244);
-            this.treeFiles.TabIndex = 4;
-            this.treeFiles.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeFiles_NodeMouseClick);
-            this.treeFiles.DoubleClick += new System.EventHandler(this.treeFiles_DoubleClick);
-            // 
-            // txtDomain
-            // 
-            this.txtDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDomain.Location = new System.Drawing.Point(266, 27);
-            this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(266, 31);
-            this.txtDomain.TabIndex = 1;
-            this.txtDomain.Text = "tesla.com";
-            // 
-            // flowLayoutPanel
-            // 
-            this.flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(266, 64);
-            this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(570, 215);
-            this.flowLayoutPanel.TabIndex = 3;
             // 
             // fileToolStripMenuItem
             // 
@@ -358,26 +248,6 @@
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnRecon
-            // 
-            this.btnRecon.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecon.Location = new System.Drawing.Point(501, 27);
-            this.btnRecon.Name = "btnRecon";
-            this.btnRecon.Size = new System.Drawing.Size(100, 31);
-            this.btnRecon.TabIndex = 6;
-            this.btnRecon.Text = "Recon";
-            this.btnRecon.UseVisualStyleBackColor = true;
-            this.btnRecon.Click += new System.EventHandler(this.btnRecon_Click);
-            // 
-            // pingTester
-            // 
-            this.pingTester.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pingTester.Location = new System.Drawing.Point(842, 37);
-            this.pingTester.Name = "pingTester";
-            this.pingTester.Size = new System.Drawing.Size(361, 218);
-            this.pingTester.TabIndex = 7;
-            // 
             // dockPanel1
             // 
             this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -392,19 +262,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1215, 716);
             this.Controls.Add(this.dockPanel1);
-            this.Controls.Add(this.pingTester);
-            this.Controls.Add(this.btnRecon);
-            this.Controls.Add(this.txtDomain);
-            this.Controls.Add(this.flowLayoutPanel);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Ping tester";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -413,14 +275,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TreeView treeFiles;
-        private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox chkSubFinder;
-        private System.Windows.Forms.TextBox txtDomain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -446,10 +300,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem informazionisuToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.CheckBox chkAmass;
-        private System.Windows.Forms.Button btnRecon;
-        private MyUserControls.PingTesterControl pingTester;
-        private System.Windows.Forms.Button btnFolder;
         private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
     }
 }
