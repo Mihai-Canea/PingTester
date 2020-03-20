@@ -71,6 +71,18 @@
     <Compile Include="FormDockingTest.Designer.cs">
       <DependentUpon>FormDockingTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="myForms\FileExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="myForms\FileExplorer.Designer.cs">
+      <DependentUpon>FileExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="myForms\ReconTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="myForms\ReconTools.Designer.cs">
+      <DependentUpon>ReconTools.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControls\PingTesterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,8 +113,17 @@
     <Content Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </Content>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDockingTest.resx">
       <DependentUpon>FormDockingTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="myForms\FileExplorer.resx">
+      <DependentUpon>FileExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="myForms\ReconTools.resx">
+      <DependentUpon>ReconTools.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUserControls\PingTesterControl.resx">
       <DependentUpon>PingTesterControl.cs</DependentUpon>

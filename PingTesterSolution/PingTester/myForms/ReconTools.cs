@@ -9,19 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace PingTester
+namespace PingTester.myForms
 {
-    public partial class FormDockingTest : Form
+    public partial class ReconTools : DockContent
     {
-        public FormDockingTest()
+        public ReconTools()
         {
             InitializeComponent();
-            this.IsMdiContainer = true;
-            var theme = new VS2015LightTheme();
-            this.dockPanel1.Theme = theme;
+        }
 
-            Form2 f2 = new Form2();
-            f2.Show(dockPanel1, DockState.DockLeft);
+        private void ReconTools_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -64,6 +64,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnRecon = new System.Windows.Forms.Button();
             this.pingTester = new PingTester.MyUserControls.PingTesterControl();
+            this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -377,11 +378,20 @@
             this.pingTester.Size = new System.Drawing.Size(361, 218);
             this.pingTester.TabIndex = 7;
             // 
+            // dockPanel1
+            // 
+            this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dockPanel1.Location = new System.Drawing.Point(0, 24);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.Size = new System.Drawing.Size(1215, 692);
+            this.dockPanel1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1215, 716);
+            this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.pingTester);
             this.Controls.Add(this.btnRecon);
             this.Controls.Add(this.txtDomain);
@@ -440,6 +450,7 @@
         private System.Windows.Forms.Button btnRecon;
         private MyUserControls.PingTesterControl pingTester;
         private System.Windows.Forms.Button btnFolder;
+        private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
     }
 }
 
