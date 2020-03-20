@@ -28,8 +28,11 @@ namespace PingTester
             myForms.ReconTools rt = new myForms.ReconTools();
             rt.Show(dockPanel1, DockState.DockRight);
 
-            VisualizeSubsForm vs = new VisualizeSubsForm("\\test.txt");
-            vs.Show(dockPanel1, DockState.Document);
+            for (int i = 0; i < 10; i++)
+            {
+                VisualizeSubsForm vs = new VisualizeSubsForm("\\test.txt");
+                vs.Show(dockPanel1, DockState.Document);
+            }
         }
 
         TreeNode nodeSelect;

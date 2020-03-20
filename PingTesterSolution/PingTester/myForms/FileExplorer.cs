@@ -34,6 +34,17 @@ namespace PingTester.myForms
                 treeView.ExpandAll();
             }
 
+            ImageList list = new ImageList();
+            Image img = Image.FromFile(@"C:\Users\miche\Documents\Assets\Icons\folder.ico");
+            list.Images.Add(img);
+            img = Image.FromFile(@"C:\Users\miche\Documents\Assets\Icons\text.ico");
+            list.Images.Add(img);
+            treeView.ImageList = list;
+            foreach (TreeNode node in this.treeView.Nodes)
+            {
+                SetIconForNode(node, 1);
+            }
+
             ContextMenu cm = new ContextMenu();
             cm.MenuItems.Add("httprobe", new EventHandler(httprobe_Click));
             cm.MenuItems.Add("Ping domains", new EventHandler(PingDomains_Click));
@@ -41,6 +52,27 @@ namespace PingTester.myForms
             cm.MenuItems.Add("Show in directory");
             cm.MenuItems.Add("Delete", new EventHandler(DeleteFile_Click));
             treeView.ContextMenu = cm;
+        }
+
+        void SetIconForNode(TreeNode node, int imageindex)
+
+        {
+            node.ImageIndex = imageindex;
+            node.SelectedImageIndex = imageindex;
+            if (node.Nodes.Count != 0)
+            {
+                foreach (TreeNode tn in node.Nodes)
+                {
+                    string[] arr = tn.FullPath.Split('\\');
+                    arr = arr.Skip(1).ToArray();
+                    FileAttributes attr = File.GetAttributes($"{Properties.Settings.Default.WORKING_PATH}\\{ string.Join("\\", arr)}");
+                    if (!attr.HasFlag(FileAttributes.Directory))
+                        SetIconForNode(tn, 1);
+                    else
+                        SetIconForNode(tn, 0);
+                }
+            }
+
         }
 
         private void httprobe_Click(object sender, EventArgs e)
@@ -113,8 +145,8 @@ namespace PingTester.myForms
                 VisualizeSubsForm vsf = new VisualizeSubsForm(treeView.SelectedNode.FullPath);
                 vsf.Show();
             }
-            else
-                MessageBox.Show("That is a directory");
+            //else
+            //    MessageBox.Show("That is a directory");
         }
 
     }
