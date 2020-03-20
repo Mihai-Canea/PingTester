@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Resources;
 using System.Diagnostics;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace PingTester
 {
@@ -178,6 +179,5 @@ namespace PingTester
 
             return directoryNode;
         }
-
     }
 }

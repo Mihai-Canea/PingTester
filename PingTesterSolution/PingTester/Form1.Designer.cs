@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnFolder = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -78,7 +77,7 @@
             this.groupBox1.Controls.Add(this.treeFiles);
             this.groupBox1.Location = new System.Drawing.Point(0, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 568);
+            this.groupBox1.Size = new System.Drawing.Size(260, 437);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
@@ -164,7 +163,7 @@
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.Location = new System.Drawing.Point(266, 64);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(570, 640);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(570, 215);
             this.flowLayoutPanel.TabIndex = 3;
             // 
             // fileToolStripMenuItem
@@ -375,7 +374,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pingTester.Location = new System.Drawing.Point(842, 37);
             this.pingTester.Name = "pingTester";
-            this.pingTester.Size = new System.Drawing.Size(361, 667);
+            this.pingTester.Size = new System.Drawing.Size(361, 218);
             this.pingTester.TabIndex = 7;
             // 
             // Form1
