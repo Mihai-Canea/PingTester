@@ -83,6 +83,12 @@
     <Compile Include="myForms\ReconTools.Designer.cs">
       <DependentUpon>ReconTools.cs</DependentUpon>
     </Compile>
+    <Compile Include="myForms\ToolTesting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="myForms\ToolTesting.Designer.cs">
+      <DependentUpon>ToolTesting.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControls\PingTesterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,11 @@
     <Content Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </Content>
+    <None Include="Resources\TransferDownload_16x.png" />
+    <None Include="Resources\Stop_16x.png" />
+    <None Include="Resources\StartWithoutDebug_16x.png" />
+    <None Include="Resources\Add_grey_16x.png" />
+    <None Include="Resources\download.png" />
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="myForms\ReconTools.resx">
       <DependentUpon>ReconTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="myForms\ToolTesting.resx">
+      <DependentUpon>ToolTesting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUserControls\PingTesterControl.resx">
       <DependentUpon>PingTesterControl.cs</DependentUpon>
@@ -139,6 +153,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>

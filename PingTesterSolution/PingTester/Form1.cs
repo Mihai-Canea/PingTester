@@ -22,17 +22,17 @@ namespace PingTester
             this.dockPanel1.Theme = theme;
             this.IsMdiContainer = true;
 
-            myForms.FileExplorer fe = new myForms.FileExplorer();
+            myForms.FileExplorer fe = new myForms.FileExplorer(dockPanel1);
             fe.Show(dockPanel1, DockState.DockLeft);
 
             myForms.ReconTools rt = new myForms.ReconTools();
             rt.Show(dockPanel1, DockState.DockRight);
 
-            for (int i = 0; i < 10; i++)
-            {
-                VisualizeSubsForm vs = new VisualizeSubsForm("\\test.txt");
-                vs.Show(dockPanel1, DockState.Document);
-            }
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    VisualizeSubsForm vs = new VisualizeSubsForm("\\test.txt");
+            //    vs.Show(dockPanel1, DockState.Document);
+            //}
         }
 
         TreeNode nodeSelect;
@@ -135,6 +135,5 @@ namespace PingTester
             //ListDirectory(treeFiles, Properties.Settings.Default.WORKING_PATH);
             //treeFiles.ExpandAll();
         }
-
     }
 }

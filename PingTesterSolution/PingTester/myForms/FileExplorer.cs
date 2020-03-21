@@ -16,9 +16,11 @@ namespace PingTester.myForms
     {
 
         TreeNode nodeSelect;
-        public FileExplorer()
+        DockPanel dockPanel;
+        public FileExplorer(DockPanel dock)
         {
             InitializeComponent();
+            dockPanel = dock;
         }
 
         private void FileExplorer_Load(object sender, EventArgs e)
@@ -79,12 +81,19 @@ namespace PingTester.myForms
         {
             var clickedMenuItem = sender as MenuItem;
             var menuText = clickedMenuItem.Text;
-            MessageBox.Show(nodeSelect.Text + " " + menuText);
+            //MessageBox.Show(nodeSelect.Text + " " + menuText);
 
-            MyUserControls.ToolTestingControl ht = new MyUserControls.ToolTestingControl();
+            string[] arr = nodeSelect.FullPath.Split('\\');
+            arr = arr.Skip(1).ToArray();
+            //FileAttributes attr = File.GetAttributes($"{Properties.Settings.Default.WORKING_PATH}\\{ string.Join("\\", arr)}");
+
+            //MyUserControls.ToolTestingControl ht = new MyUserControls.ToolTestingControl();
+            myForms.ToolTesting ht = new ToolTesting();
             ht.ToolName = "httprobe";
-            ht.CommandTool = $"/c cat {Properties.Settings.Default.WORKING_PATH}\\{nodeSelect.Text} | httprobe -p http:8080 -p https:8443";
+            ht.CommandTool = $"/c cat {Properties.Settings.Default.WORKING_PATH}\\{ string.Join("\\", arr)} | httprobe -p http:8080 -p https:8443";
+            ht.Show(dockPanel, DockState.Document);
             //flowLayoutPanel.Controls.Add(ht);
+
         }
 
         private void PingDomains_Click(object sender, EventArgs e)
@@ -135,6 +144,11 @@ namespace PingTester.myForms
             return directoryNode;
         }
 
+        public string TheValue
+        {
+            get { return "visualize"; }
+        }
+
         private void treeView_DoubleClick(object sender, EventArgs e)
         {
             string[] arr = treeView.SelectedNode.FullPath.Split('\\');
@@ -143,7 +157,7 @@ namespace PingTester.myForms
             if (!attr.HasFlag(FileAttributes.Directory))
             {
                 VisualizeSubsForm vsf = new VisualizeSubsForm(treeView.SelectedNode.FullPath);
-                vsf.Show();
+                vsf.Show(dockPanel,DockState.Document);
             }
             //else
             //    MessageBox.Show("That is a directory");

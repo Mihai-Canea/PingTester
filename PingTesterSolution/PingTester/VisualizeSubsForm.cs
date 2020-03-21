@@ -17,6 +17,7 @@ namespace PingTester
         public VisualizeSubsForm(String fileName)
         {
             InitializeComponent();
+            this.Text = fileName;
             this.label1.Text = fileName;
             string[] arr = fileName.Split('\\');
             arr = arr.Skip(1).ToArray();

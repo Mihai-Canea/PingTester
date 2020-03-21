@@ -93,6 +93,8 @@
             // 
             // txtVisual
             // 
+            this.txtVisual.BackColor = System.Drawing.SystemColors.Control;
+            this.txtVisual.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtVisual.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtVisual.Location = new System.Drawing.Point(0, 46);
             this.txtVisual.Multiline = true;

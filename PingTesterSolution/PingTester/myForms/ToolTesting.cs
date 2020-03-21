@@ -1,34 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;
-using System.Diagnostics;
-using System.IO;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace PingTester.MyUserControls
+namespace PingTester.myForms
 {
-    public partial class ToolTestingControl : DockContent
+    public partial class ToolTesting : DockContent
     {
+
         Thread threadUrl;
         Process process;
         string CommandsProcess;
 
-        public ToolTestingControl()
+        public ToolTesting()
         {
             InitializeComponent();
         }
 
         public string ToolName
         {
-            get { return groupBoxTool.Text; }
-            set { groupBoxTool.Text = value; }
+            get { return this.Text; }
+            set { this.Text = value; }
         }
 
         public string CommandTool
@@ -37,10 +38,30 @@ namespace PingTester.MyUserControls
             set { CommandsProcess = value; }
         }
 
-        private void btnTestUrls_Click(object sender, EventArgs e)
+        private void StartToolStripButton_Click(object sender, EventArgs e)
         {
             threadUrl = new Thread(new ParameterizedThreadStart(threadmethod));
             threadUrl.Start(CommandsProcess);
+        }
+
+        private void StopToolStripButton_Click(object sender, EventArgs e)
+        {
+            StatusTxtBox.Text = threadUrl.ThreadState.ToString();
+            foreach (var process in Process.GetProcessesByName(this.Text))
+            {
+                process.Kill();
+            }
+        }
+
+        private void DownloadButton_Click(object sender, EventArgs e)
+        {
+            DateTime dateTime = DateTime.UtcNow.Date;
+            using (StreamWriter sw = new StreamWriter($"{Properties.Settings.Default.WORKING_PATH}\\{dateTime.ToString("dd-MM-yyyy")}{this.Text}-Output.txt"))
+            {
+                for (int i = 0; i < lstUrls.Items.Count; i++)
+                    sw.WriteLine(lstUrls.Items[i]);
+            }
+            StatusTxtBox.Text = "File exported";
         }
 
         public void threadmethod(object path)
@@ -66,11 +87,17 @@ namespace PingTester.MyUserControls
         {
             try
             {
-                SetTextBoxText(outLine.Data.ToString());
+                if (outLine.Data != null)
+                {
+                    //MessageBox.Show(outLine.Data.ToString());
+                    SetTextBoxText(outLine.Data.ToString());
+                }
+                else
+                    SetFinishText($"{this.Text} finish");
             }
             catch (Exception)
             {
-                SetFinishText($"{groupBoxTool.Text} finish");
+                MessageBox.Show("Error");
             }
         }
 
@@ -99,29 +126,8 @@ namespace PingTester.MyUserControls
                 this.txtFinish.Invoke(new SetFinishTextInvoker(SetFinishText), text);
             }
             else
-            {
-                this.txtFinish.Text = text + Environment.NewLine;
-            }
+                this.StatusTxtBox.Text = text + Environment.NewLine;
         }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            txtFinish.Text = threadUrl.ThreadState.ToString();
-            foreach (var process in Process.GetProcessesByName(groupBoxTool.Text))
-            {
-                process.Kill();
-            }
-        }
-
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            DateTime dateTime = DateTime.UtcNow.Date;
-            using (StreamWriter sw = new StreamWriter($"{Properties.Settings.Default.WORKING_PATH}\\{dateTime.ToString("dd-MM-yyyy")}{groupBoxTool.Text}-Output.txt"))
-            {
-                for (int i = 0; i < lstUrls.Items.Count; i++)
-                    sw.WriteLine(lstUrls.Items[i]);
-            }
-            txtFinish.Text = "File exported";
-        }
+        
     }
 }
