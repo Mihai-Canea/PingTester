@@ -96,7 +96,7 @@
       <DependentUpon>PingTesterControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUserControls\ToolTestingControl.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="MyUserControls\ToolTestingControl.Designer.cs">
       <DependentUpon>ToolTestingControl.cs</DependentUpon>
@@ -119,6 +119,9 @@
     <Content Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </Content>
+    <None Include="Resources\FolderClosed_grey_16x.png" />
+    <None Include="Resources\TextFile_16x.png" />
+    <None Include="Resources\FolderClosed_16x.png" />
     <None Include="Resources\TransferDownload_16x.png" />
     <None Include="Resources\Stop_16x.png" />
     <None Include="Resources\StartWithoutDebug_16x.png" />

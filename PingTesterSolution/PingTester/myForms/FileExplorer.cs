@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PingTester.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,9 +38,9 @@ namespace PingTester.myForms
             }
 
             ImageList list = new ImageList();
-            Image img = Image.FromFile(@"C:\Users\miche\Documents\Assets\Icons\folder.ico");
+            Image img = Resources.FolderClosed_grey_16x ;
             list.Images.Add(img);
-            img = Image.FromFile(@"C:\Users\miche\Documents\Assets\Icons\text.ico");
+            img = Resources.TextFile_16x;
             list.Images.Add(img);
             treeView.ImageList = list;
             foreach (TreeNode node in this.treeView.Nodes)
@@ -57,7 +58,6 @@ namespace PingTester.myForms
         }
 
         void SetIconForNode(TreeNode node, int imageindex)
-
         {
             node.ImageIndex = imageindex;
             node.SelectedImageIndex = imageindex;
