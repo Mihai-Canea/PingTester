@@ -25,7 +25,7 @@ namespace PingTester
             myForms.FileExplorer fe = new myForms.FileExplorer(dockPanel1);
             fe.Show(dockPanel1, DockState.DockLeft);
 
-            myForms.ReconTools rt = new myForms.ReconTools();
+            myForms.ReconTools rt = new myForms.ReconTools(dockPanel1);
             rt.Show(dockPanel1, DockState.DockRight);
 
             //for (int i = 0; i < 10; i++)
@@ -33,6 +33,9 @@ namespace PingTester
             //    VisualizeSubsForm vs = new VisualizeSubsForm("\\test.txt");
             //    vs.Show(dockPanel1, DockState.Document);
             //}
+
+            //myForms.PingTester pt = new myForms.PingTester();
+            //pt.Show(dockPanel1, DockState.Document);
         }
 
         TreeNode nodeSelect;

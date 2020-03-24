@@ -28,104 +28,117 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnFilter = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtVisual = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripLblPath = new System.Windows.Forms.ToolStripLabel();
+            this.StripTxtFilter = new System.Windows.Forms.ToolStripTextBox();
+            this.ExportStripButton = new System.Windows.Forms.ToolStripButton();
+            this.FilterToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnExport);
-            this.groupBox1.Controls.Add(this.btnFilter);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(629, 46);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filters";
-            // 
-            // btnExport
-            // 
-            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Location = new System.Drawing.Point(548, 17);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
-            this.btnExport.TabIndex = 2;
-            this.btnExport.Text = "Export";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFilter.Location = new System.Drawing.Point(467, 17);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(75, 23);
-            this.btnFilter.TabIndex = 3;
-            this.btnFilter.Text = "Filter";
-            this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(219, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(242, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // txtVisual
             // 
+            this.txtVisual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtVisual.BackColor = System.Drawing.SystemColors.Control;
             this.txtVisual.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtVisual.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtVisual.Location = new System.Drawing.Point(0, 46);
+            this.txtVisual.Location = new System.Drawing.Point(6, 28);
             this.txtVisual.Multiline = true;
             this.txtVisual.Name = "txtVisual";
             this.txtVisual.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtVisual.Size = new System.Drawing.Size(629, 335);
+            this.txtVisual.Size = new System.Drawing.Size(623, 341);
             this.txtVisual.TabIndex = 2;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripLblPath,
+            this.toolStripSeparator,
+            this.ExportStripButton,
+            this.toolStripSeparator1,
+            this.FilterToolStripButton,
+            this.StripTxtFilter});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(629, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // ToolStripLblPath
+            // 
+            this.ToolStripLblPath.Name = "ToolStripLblPath";
+            this.ToolStripLblPath.Size = new System.Drawing.Size(43, 22);
+            this.ToolStripLblPath.Text = "[PATH]";
+            // 
+            // StripTxtFilter
+            // 
+            this.StripTxtFilter.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.StripTxtFilter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.StripTxtFilter.Name = "StripTxtFilter";
+            this.StripTxtFilter.Size = new System.Drawing.Size(200, 25);
+            // 
+            // ExportStripButton
+            // 
+            this.ExportStripButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ExportStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ExportStripButton.Image = global::PingTester.Properties.Resources.TransferDownload_16x;
+            this.ExportStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ExportStripButton.Name = "ExportStripButton";
+            this.ExportStripButton.Size = new System.Drawing.Size(23, 22);
+            this.ExportStripButton.Text = "&Export";
+            this.ExportStripButton.Click += new System.EventHandler(this.ExportStripButton_Click);
+            // 
+            // FilterToolStripButton
+            // 
+            this.FilterToolStripButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.FilterToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.FilterToolStripButton.Image = global::PingTester.Properties.Resources.Filter_16x;
+            this.FilterToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FilterToolStripButton.Name = "FilterToolStripButton";
+            this.FilterToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.FilterToolStripButton.Text = "&Filter";
+            this.FilterToolStripButton.Click += new System.EventHandler(this.FilterToolStripButton_Click);
             // 
             // VisualizeSubsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 381);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtVisual);
-            this.Controls.Add(this.groupBox1);
             this.Name = "VisualizeSubsForm";
             this.ShowIcon = false;
             this.Text = "VisualizeSubsForm";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtVisual;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnFilter;
-        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
+        private System.Windows.Forms.ToolStripButton FilterToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton ExportStripButton;
+        private System.Windows.Forms.ToolStripLabel ToolStripLblPath;
+        private System.Windows.Forms.ToolStripTextBox StripTxtFilter;
     }
 }

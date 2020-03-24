@@ -77,6 +77,12 @@
     <Compile Include="myForms\FileExplorer.Designer.cs">
       <DependentUpon>FileExplorer.cs</DependentUpon>
     </Compile>
+    <Compile Include="myForms\PingTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="myForms\PingTester.Designer.cs">
+      <DependentUpon>PingTester.cs</DependentUpon>
+    </Compile>
     <Compile Include="myForms\ReconTools.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,8 @@
     <Content Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </Content>
+    <None Include="Resources\RunFilter_16x.png" />
+    <None Include="Resources\Filter_16x.png" />
     <None Include="Resources\FolderClosed_grey_16x.png" />
     <None Include="Resources\TextFile_16x.png" />
     <None Include="Resources\FolderClosed_16x.png" />
@@ -135,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="myForms\FileExplorer.resx">
       <DependentUpon>FileExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="myForms\PingTester.resx">
+      <DependentUpon>PingTester.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="myForms\ReconTools.resx">
       <DependentUpon>ReconTools.cs</DependentUpon>

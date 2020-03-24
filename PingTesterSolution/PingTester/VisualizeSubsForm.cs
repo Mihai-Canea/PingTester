@@ -18,7 +18,7 @@ namespace PingTester
         {
             InitializeComponent();
             this.Text = fileName;
-            this.label1.Text = fileName;
+            this.ToolStripLblPath.Text = fileName;
             string[] arr = fileName.Split('\\');
             arr = arr.Skip(1).ToArray();
             using (StreamReader sr = new StreamReader($"{Properties.Settings.Default.WORKING_PATH}\\{string.Join("\\", arr)}"))
@@ -33,23 +33,23 @@ namespace PingTester
             }
         }
 
-        private void btnFilter_Click(object sender, EventArgs e)
+        private void FilterToolStripButton_Click(object sender, EventArgs e)
         {
             txtVisual.Text = "";
-            using (StreamReader sr = new StreamReader($"{Properties.Settings.Default.WORKING_PATH}\\{label1.Text}"))
+            using (StreamReader sr = new StreamReader($"{Properties.Settings.Default.WORKING_PATH}\\{ToolStripLblPath.Text}"))
             {
                 string line;
                 while (sr.Peek() != -1)
                 {
                     line = sr.ReadLine();
-                    if (!line.Contains(textBox1.Text))
+                    if (!line.Contains(StripTxtFilter.Text))
                         txtVisual.Text += $"{line}{Environment.NewLine}";
                 }
                 sr.Close();
             }
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
+        private void ExportStripButton_Click(object sender, EventArgs e)
         {
             using (StreamWriter sw = new StreamWriter($"{Properties.Settings.Default.WORKING_PATH}\\SubsFiltered.txt"))
             {
@@ -58,6 +58,5 @@ namespace PingTester
                         sw.WriteLine(txtVisual.Lines[i]);
             }
         }
-
     }
 }

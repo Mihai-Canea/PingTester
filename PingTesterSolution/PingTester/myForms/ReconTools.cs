@@ -13,14 +13,33 @@ namespace PingTester.myForms
 {
     public partial class ReconTools : DockContent
     {
-        public ReconTools()
+        DockPanel dockPanel;
+        public ReconTools(DockPanel dock)
         {
             InitializeComponent();
+            dockPanel = dock;
         }
 
         private void ReconTools_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSubfinder_Click(object sender, EventArgs e)
+        {
+            myForms.ToolTesting sub = new ToolTesting();
+            sub.ToolName = "subfinder";
+            sub.CommandTool = $"/c subfinder -d {txtDomain.Text}";
+            sub.Show(dockPanel, DockState.Document);
+        }
+
+        private void btnAmass_Click(object sender, EventArgs e)
+        {
+            myForms.ToolTesting am = new myForms.ToolTesting();
+            am.ToolName = "amass";
+            // amass enum -v -brute -min-for-recursive 2 -d tesla.com
+            am.CommandTool = $"/c amass enum -v -brute -min-for-recursive 2 -d {txtDomain.Text}";
+            am.Show(dockPanel,DockState.Document);
         }
     }
 }

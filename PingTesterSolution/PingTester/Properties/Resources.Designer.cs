@@ -73,6 +73,16 @@ namespace PingTester.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Filter_16x {
+            get {
+                object obj = ResourceManager.GetObject("Filter_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FolderClosed_16x {
             get {
                 object obj = ResourceManager.GetObject("FolderClosed_16x", resourceCulture);
@@ -86,6 +96,16 @@ namespace PingTester.Properties {
         internal static System.Drawing.Bitmap FolderClosed_grey_16x {
             get {
                 object obj = ResourceManager.GetObject("FolderClosed_grey_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RunFilter_16x {
+            get {
+                object obj = ResourceManager.GetObject("RunFilter_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

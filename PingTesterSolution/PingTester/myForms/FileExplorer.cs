@@ -99,6 +99,10 @@ namespace PingTester.myForms
         private void PingDomains_Click(object sender, EventArgs e)
         {
             //pingTester.PATH = PATH;
+            string[] arr = nodeSelect.FullPath.Split('\\');
+            arr = arr.Skip(1).ToArray();
+            myForms.PingTester pt = new PingTester($"{ string.Join("\\", arr)}");
+            pt.Show(dockPanel, DockState.Document);
         }
 
         private void DeleteFile_Click(object sender, EventArgs e)
