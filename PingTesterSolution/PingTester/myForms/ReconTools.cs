@@ -38,7 +38,8 @@ namespace PingTester.myForms
             myForms.ToolTesting am = new myForms.ToolTesting();
             am.ToolName = "amass";
             // amass enum -v -brute -min-for-recursive 2 -d tesla.com
-            am.CommandTool = $"/c amass enum -v -brute -min-for-recursive 2 -d {txtDomain.Text}";
+            // amass enum --passive -d example.com
+            am.CommandTool = $"/c amass enum --passive -d {txtDomain.Text}";
             am.Show(dockPanel,DockState.Document);
         }
     }
