@@ -5,6 +5,7 @@
 ### About
 
 PingTester is an Open Source Software that allows you to do Subdomain Enumeration in a easy way.
+
 The Software is written in **C# Windows Form Project**.
 
 ### Tools used
@@ -20,6 +21,7 @@ The Software is written in **C# Windows Form Project**.
 The first thing to do is to add the working path and tools folder in `Tools / settings`
 
 Working folder: where the explort will be saved (ex. tesla.com.txt)
+
 Tools folder:
 ```
 Tools
