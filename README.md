@@ -1,5 +1,5 @@
 ![Presentation](https://github.com/Mihai-Canea/PingTester/blob/master/Assets/PingTester.png)
-# PingTester
+# Ping tester
 ![Presentation](https://github.com/Mihai-Canea/PingTester/blob/master/Assets/pingTesterVisual.png)
 
 ### About
